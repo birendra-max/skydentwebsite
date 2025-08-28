@@ -66,61 +66,120 @@
     <main>
 
         <!-- Hero Section -->
-        <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16 md:py-24">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row items-center">
+        <section class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 md:py-24 relative overflow-hidden">
+            <!-- Background decorative elements -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-blue-100 opacity-30"></div>
+                <div class="absolute top-1/3 -right-20 w-48 h-48 rounded-full bg-indigo-100 opacity-40"></div>
+                <div class="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-blue-200 opacity-20"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center">
                     <!-- Hero Content -->
-                    <div class="md:w-1/2 mb-10 md:mb-0">
-                        <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-                            🦷 Your Extended Dental Lab Team
+                    <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-10">
+                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-medium text-sm mb-6">
+                            <span class="mr-2">🦷</span> Trusted by 500+ dental labs worldwide
+                        </div>
+
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                            Your Extended <span class="text-blue-600">Dental Lab Team</span>
                         </h1>
+
                         <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-                            Precision, Reliability, Partnership.
+                            Precision, Reliability, Partnership. We integrate seamlessly like your own in-house team.
                         </p>
-                        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-50 mb-8">
                             <p class="text-gray-700 flex items-start">
-                                <span class="text-blue-600 mr-2 text-xl">📌</span>
-                                Not just outsourcing — we integrate like your own team, delivering accuracy, consistency, and accountability.
+                                <span class="text-blue-600 mr-3 text-xl bg-blue-50 p-2 rounded-lg">✨</span>
+                                Not just outsourcing — we deliver accuracy, consistency, and accountability that reduces remakes and builds client trust.
                             </p>
                         </div>
+
                         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-center font-medium">
-                                Get Started
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-center font-medium shadow-md hover:shadow-lg transition-all">
+                                Get Started Today
                             </a>
-                            <a href="#" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md text-center font-medium">
+                            <a href="#" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg text-center font-medium transition-all">
                                 Learn More
                             </a>
                         </div>
+
+                        <!-- Stats -->
+                        <div class="mt-12 grid grid-cols-2 gap-6">
+                            <div class="flex items-center">
+                                <div class="mr-3 bg-green-100 p-2 rounded-lg">
+                                    <span class="text-green-600 text-xl">✓</span>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-gray-900">99.9%</p>
+                                    <p class="text-sm text-gray-600">On-Time Delivery</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="mr-3 bg-blue-100 p-2 rounded-lg">
+                                    <span class="text-blue-600 text-xl">⏱</span>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-gray-900">24/7</p>
+                                    <p class="text-sm text-gray-600">Dedicated Support</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Hero Image -->
-                    <div class="md:w-1/2 flex justify-center">
+                    <!-- Hero Visual -->
+                    <div class="lg:w-1/2 flex justify-center">
                         <div class="relative">
-                            <div class="w-80 h-80 bg-blue-200 rounded-full flex items-center justify-center overflow-hidden">
-                                <img src="https://placehold.co/400x400/2563eb/FFFFFF?text=Dental+Lab" alt="Professional Dental Laboratory Team - Precision Dental Restorations" class="w-full h-full object-cover">
-                            </div>
-                            <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-lg shadow-md">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                                        <span class="text-blue-600 text-xl">✓</span>
+                            <!-- Main illustration container -->
+                            <div class="relative bg-white p-6 rounded-2xl shadow-xl border border-blue-100 transform rotate-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl overflow-hidden w-80 h-80 flex items-center justify-center">
+                                    <div class="text-white text-center p-6">
+                                        <span class="text-5xl mb-4 inline-block">🦷</span>
+                                        <h3 class="font-bold text-xl mb-2">Digital Dental Design</h3>
+                                        <p class="text-blue-100">Precision & Accuracy Guaranteed</p>
                                     </div>
-                                    <p class="text-sm font-medium">Precision Results<br>Guaranteed</p>
                                 </div>
                             </div>
-                            <div class="absolute -top-4 -right-4 bg-white p-4 rounded-lg shadow-md">
+
+                            <!-- Floating elements -->
+                            <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-md border border-blue-100">
                                 <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-3">
+                                        <span class="text-green-600 text-xl">✓</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold">Precision Results</p>
+                                        <p class="text-xs text-gray-500">Guaranteed</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-md border border-blue-100">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-3">
                                         <span class="text-blue-600 text-xl">⏱</span>
                                     </div>
-                                    <p class="text-sm font-medium">Fast Turnaround<br>Time</p>
+                                    <div>
+                                        <p class="text-sm font-semibold">Fast Turnaround</p>
+                                        <p class="text-xs text-gray-500">Time</p>
+                                    </div>
                                 </div>
+                            </div>
+
+                            <!-- Additional floating element -->
+                            <div class="absolute top-1/2 -right-6 bg-white py-2 px-3 rounded-lg shadow-sm border border-blue-100 transform -rotate-6">
+                                <p class="text-xs font-medium text-blue-600 flex items-center">
+                                    <span class="mr-1">🌎</span> Global Partners
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Stats Section -->
         <section class="py-12">
             <div class="container mx-auto px-4">
