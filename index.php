@@ -4,9 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Lab Team - Precision, Reliability, Partnership</title>
+    <title>Skydent | World-Class Dental Care at Affordable Prices</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Experience premier dental treatments at Skydent. Trusted by patients from the USA, UK, Canada, and Australia for high-quality dental implants, veneers, and smile makeovers. Combine your treatment with a memorable experience.">
+    <meta name="keywords" content="skydent, dentist abroad, dental implants abroad, affordable dental care, dental tourism, veneers, smile makeover, best dentist for implants, dental clinic for international patients">
+    <meta name="author" content="Skydent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Skydent | Top-Quality Dental Care for International Patients">
+    <meta property="og:description" content="Join 100+ patients from the US, UK, Canada & Australia who achieved their perfect smile at Skydent. Get world-class dental work at a fraction of the cost.">
+    <meta property="og:image" content="https://darkgoldenrod-rabbit-127353.hostingersite.com/images/og-international-patient.jpg">
+    <meta property="og:url" content="https://darkgoldenrod-rabbit-127353.hostingersite.com/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Skydent | Dental Care for International Patients">
+    <meta name="twitter:description" content="Affordable, high-quality dental implants, veneers, and cosmetic dentistry. Trusted by patients from across the globe.">
+    <meta name="twitter:image" content="https://darkgoldenrod-rabbit-127353.hostingersite.com/images/twitter-global-smiles.jpg">
     <style>
         h1,
         h2,
@@ -1641,7 +1659,7 @@
 
     </main>
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-12">
+    <footer class="bg-black text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo -->
