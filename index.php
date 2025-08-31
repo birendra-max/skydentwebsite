@@ -56,13 +56,13 @@
 
                 <!-- Action Buttons -->
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center">
+                    <a href="https://skydentclouds.com/login.php" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center">
                         <i class="fas fa-sign-in-alt mr-2"></i> Portal Login
                     </a>
                     <a href="#" class="text-gray-700 hover:text-blue-600">
                         <i class="fab fa-paypal text-2xl"></i>
                     </a>
-                    <a href="#" class="text-gray-700 hover:text-green-600">
+                    <a href="https://wa.me/+918810468697?text=Hello%20I%20want%20to%20know%20more" class="text-gray-700 hover:text-green-600">
                         <i class="fab fa-whatsapp text-2xl"></i>
                     </a>
                 </div>
