@@ -72,233 +72,79 @@
 
     <main>
 
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden  py-16">
-            <!-- Background elements -->
-            <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-blue-100/30 to-transparent"></div>
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-0 w-80 h-80 bg-indigo-200/20 rounded-full blur-3xl"></div>
-
-            <!-- Animated dental elements -->
-            <div class="absolute top-1/4 left-10 animate-float">
-                <div class="w-16 h-16 bg-white/80 rounded-lg shadow-lg flex items-center justify-center rotate-12">
-                    <i class="fas fa-tooth text-blue-400 text-2xl"></i>
-                </div>
-            </div>
-            <div class="absolute top-1/3 right-16 animate-float" style="animation-delay: 2s;">
-                <div class="w-12 h-12 bg-white/80 rounded-lg shadow-lg flex items-center justify-center -rotate-12">
-                    <i class="fas fa-tooth text-indigo-400 text-xl"></i>
-                </div>
-            </div>
-            <div class="absolute bottom-1/4 left-20 animate-float" style="animation-delay: 3s;">
-                <div class="w-14 h-14 bg-white/80 rounded-lg shadow-lg flex items-center justify-center rotate-6">
-                    <i class="fas fa-tooth text-blue-500 text-xl"></i>
-                </div>
-            </div>
-
-            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left content -->
-                <div class="text-center lg:text-left">
-                    <!-- Badge -->
-                    <div class="inline-flex items-center bg-white rounded-full py-2 px-5 shadow-sm mb-8 border border-gray-100">
-                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-                        <span class="text-sm font-medium text-gray-700">Trusted by 100+ dental labs worldwide</span>
+        <section class="bg-gradient-to-br from-blue-50 to-indigo-50 py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto mt-8">
+                <!-- Main content with image -->
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-12 mb-16">
+                    <!-- Text content -->
+                    <div class="lg:w-1/2">
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            Your Trusted Partner for Digital Dental Design
+                        </h1>
+                        <p class="text-xl text-gray-700 mb-4">
+                            Accuracy • Speed • Support – Like Your Own In-House Team
+                        </p>
+                        <p class="text-lg text-gray-600">
+                            We go beyond outsourcing. <span class="font-semibold">Skydent</span> becomes an extension of your lab, delivering consistent precision, reducing remakes, and helping you win client trust every single day.
+                        </p>
                     </div>
 
-                    <!-- Main heading -->
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                        Precision Dental Design
-                        <span class="text-white">Without the Overhead</span>
-                    </h1>
-
-                    <!-- Description -->
-                    <p class="text-xl text-white mb-8 max-w-2xl">
-                        Skydent becomes your remote design team—delivering consistent, high-quality dental restorations with 99.9% on-time delivery and 24/7 dedicated support.
-                    </p>
-
-                    <!-- Stats -->
-                    <div class="grid grid-cols-2 gap-6 mb-10">
-                        <div class="bg-white/80 p-4 rounded-xl shadow-sm">
-                            <div class="flex items-end">
-                                <div class="text-3xl font-bold text-blue-600">99.9%</div>
-                                <div class="ml-2 w-14 h-6 bg-green-100 rounded-full flex items-center justify-center mb-1">
-                                    <span class="text-xs font-semibold text-green-700">+4.5%</span>
-                                </div>
-                            </div>
-                            <p class="text-sm text-gray-600 mt-1">On-Time Delivery</p>
-                        </div>
-                        <div class="bg-white/80 p-4 rounded-xl shadow-sm">
-                            <div class="text-3xl font-bold text-blue-600">24/7</div>
-                            <p class="text-sm text-gray-600 mt-1">Expert Support</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-5">
-                        <!-- Primary Button -->
-                        <a href="#contact" class="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-4 px-8 rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1.5 flex items-center justify-center group overflow-hidden">
-                            <!-- Shine effect -->
-                            <div class="absolute inset-0 overflow-hidden">
-                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                            </div>
-
-                            <!-- Button content -->
-                            <span class="relative z-10">Start Your Project</span>
-                            <svg class="w-5 h-5 ml-2 relative z-10 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    <!-- Image placeholder - replace with your actual image -->
+                    <div class="lg:w-1/2 flex justify-center">
+                        <div class="w-full h-80 bg-blue-200 rounded-lg flex items-center justify-center text-blue-600">
+                            <!-- Replace this div with your actual image -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                             </svg>
+                        </div>
+                    </div>
+                </div>
 
-                            <!-- Floating animation -->
-                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur-sm opacity-50 group-hover:opacity-80 group-hover:-inset-1.5 transition-all duration-300 animate-pulse"></div>
+                <!-- Stats section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <!-- Stat 1 -->
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">99.9%</div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">On-Time Delivery</h3>
+                        <p class="text-gray-600">Always on schedule</p>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Global Dental Partners</h3>
+                        <p class="text-gray-600">USA, UK, Canada & more</p>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Dedicated Support</h3>
+                        <p class="text-gray-600">Real people, not bots</p>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">Precision</div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Results Guaranteed</h3>
+                        <p class="text-gray-600">Exceed & 3Shape expertise</p>
+                    </div>
+                </div>
+
+                <!-- CTA section -->
+                <div class="text-center">
+
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
+                            Get Started Today
                         </a>
-
-                        <!-- Secondary Button -->
-                        <a href="#services" class="relative bg-white border-2 border-yellow-400 text-yellow-600 font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center group overflow-hidden">
-                            <!-- Shine effect -->
-                            <div class="absolute inset-0 overflow-hidden">
-                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-yellow-100 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                            </div>
-
-                            <!-- Button content -->
-                            <span class="relative z-10">View Our Services</span>
-                            <svg class="w-5 h-5 ml-2 relative z-10 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-
-                            <!-- Floating dots -->
-                            <div class="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div class="absolute -bottom-1 -left-1 w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <a href="#" class="border-2 border-blue-600 hover:bg-blue-700 text-black hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
+                            Learn More
                         </a>
                     </div>
-
-                    <style>
-                        @keyframes float {
-
-                            0%,
-                            100% {
-                                transform: translateY(0);
-                            }
-
-                            50% {
-                                transform: translateY(-5px);
-                            }
-                        }
-
-                        .group:hover {
-                            animation: float 2s ease-in-out infinite;
-                        }
-                    </style>
-                </div>
-
-                <!-- Right content - visual -->
-                <div class="relative">
-                    <!-- Main card -->
-                    <div class="bg-white rounded-2xl p-8 shadow-2xl border border-gray-100 transform rotate-1">
-                        <div class="flex items-center mb-6">
-                            <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
-                                <i class="fas fa-tooth text-blue-600 text-2xl"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="font-semibold text-gray-900 text-lg">Digital Design Workflow</h3>
-                                <p class="text-sm text-gray-600">3Shape & Exocad Experts</p>
-                            </div>
-                        </div>
-
-                        <!-- Design visualization -->
-                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 mb-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <div class="text-sm font-medium text-gray-700">Design Progress</div>
-                                <div class="text-sm font-semibold text-blue-600">85%</div>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                <div class="bg-gradient-to-r from-blue-500 to-indigo-600 h-2.5 rounded-full" style="width: 85%"></div>
-                            </div>
-                            <div class="grid grid-cols-3 gap-3 mt-4">
-                                <div class="bg-white p-3 rounded-lg shadow-sm">
-                                    <div class="h-4 bg-blue-200 rounded mb-2"></div>
-                                    <div class="h-2 bg-blue-100 rounded"></div>
-                                </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm">
-                                    <div class="h-4 bg-indigo-200 rounded mb-2"></div>
-                                    <div class="h-2 bg-indigo-100 rounded"></div>
-                                </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm">
-                                    <div class="h-4 bg-blue-200 rounded mb-2"></div>
-                                    <div class="h-2 bg-blue-100 rounded"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Status bars -->
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm font-medium text-gray-700">Design Accuracy</span>
-                                    <span class="text-sm font-semibold text-blue-600">99.7%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-gradient-to-r from-blue-500 to-blue-700 h-2.5 rounded-full" style="width: 99.7%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm font-medium text-gray-700">Client Satisfaction</span>
-                                    <span class="text-sm font-semibold text-indigo-600">98%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-700 h-2.5 rounded-full" style="width: 98%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Floating elements -->
-                    <div class="absolute -bottom-5 -left-5 bg-white py-3 px-5 rounded-xl shadow-lg border border-gray-100">
-                        <div class="flex items-center">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                            <div class="text-sm font-medium text-gray-700">Online Now</div>
-                        </div>
-                    </div>
-
-                    <div class="absolute -top-5 -right-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-5 rounded-xl shadow-lg">
-                        <div class="text-sm font-semibold">100+ Labs Served</div>
-                    </div>
                 </div>
             </div>
-
-            <style>
-                @keyframes float {
-
-                    0%,
-                    100% {
-                        transform: translateY(0);
-                    }
-
-                    50% {
-                        transform: translateY(-10px);
-                    }
-                }
-
-                .animate-float {
-                    animation: float 5s ease-in-out infinite;
-                }
-
-                .animate-pulse {
-                    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                }
-
-                @keyframes pulse {
-
-                    0%,
-                    100% {
-                        opacity: 1;
-                    }
-
-                    50% {
-                        opacity: 0.7;
-                    }
-                }
-            </style>
         </section>
-
 
         <!-- Get In Touch With Us -->
         <section class="py-16 max-w-8xl">
