@@ -71,31 +71,50 @@
     </header>
 
     <main>
-
-        <section class="bg-gradient-to-br from-blue-50 to-indigo-50 py-24 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto mt-8">
+        <section class="bg-gradient-to-br from-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-8xl mx-auto mt-16">
                 <!-- Main content with image -->
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12 mb-16">
                     <!-- Text content -->
                     <div class="lg:w-1/2">
-                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                            Your Trusted Partner for Digital Dental Design
+                        <div class="mb-2">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">DENTAL LAB EXCELLENCE</span>
+                        </div>
+                        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                            Accuracy • Speed • Support <br>
+                            <span class="text-blue-600">Like Your Own In-House Team</span>
                         </h1>
-                        <p class="text-xl text-gray-700 mb-4">
-                            Accuracy • Speed • Support – Like Your Own In-House Team
+
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            We go beyond outsourcing. <span class="font-semibold text-blue-700">Skydent</span> becomes an extension of your lab, delivering consistent precision, reducing remakes, and helping you win client trust every single day.
                         </p>
-                        <p class="text-lg text-gray-600">
-                            We go beyond outsourcing. <span class="font-semibold">Skydent</span> becomes an extension of your lab, delivering consistent precision, reducing remakes, and helping you win client trust every single day.
-                        </p>
+
+                        <div class="flex flex-wrap gap-4 mt-10">
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg flex items-center">
+                                <span>Get Started Today</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <a href="#" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300 flex items-center">
+                                <span>Learn More</span>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Image placeholder - replace with your actual image -->
-                    <div class="lg:w-1/2 flex justify-center">
-                        <div class="w-full h-80 bg-blue-200 rounded-lg flex items-center justify-center text-blue-600">
+                    <!-- Image placeholder -->
+                    <div class="lg:w-1/2 flex justify-center relative">
+                        <div class="w-full max-w-md h-80 bg-white rounded-2xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-white">
                             <!-- Replace this div with your actual image -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                            </svg>
+                            <div class="absolute inset-0 opacity-10"></div>
+                            <div class="relative z-10 text-center p-6">
+                                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 text-blue-600 mb-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                                    </svg>
+                                </div>
+                                <p class="text-gray-600 font-medium">Dental Laboratory Imaging</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,185 +122,83 @@
                 <!-- Stats section -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                     <!-- Stat 1 -->
-                    <div class="text-center">
+                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
                         <div class="text-4xl font-bold text-blue-600 mb-2">99.9%</div>
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">On-Time Delivery</h3>
-                        <p class="text-gray-600">Always on schedule</p>
+                        <p class="text-gray-600 text-sm">Always on schedule</p>
                     </div>
 
                     <!-- Stat 2 -->
-                    <div class="text-center">
+                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
                         <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Global Dental Partners</h3>
-                        <p class="text-gray-600">USA, UK, Canada & more</p>
+                        <p class="text-gray-600 text-sm">USA, UK, Canada & more</p>
                     </div>
 
                     <!-- Stat 3 -->
-                    <div class="text-center">
+                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
                         <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Dedicated Support</h3>
-                        <p class="text-gray-600">Real people, not bots</p>
+                        <p class="text-gray-600 text-sm">Real people, not bots</p>
                     </div>
 
                     <!-- Stat 4 -->
-                    <div class="text-center">
+                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
                         <div class="text-4xl font-bold text-blue-600 mb-2">Precision</div>
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Results Guaranteed</h3>
-                        <p class="text-gray-600">Exceed & 3Shape expertise</p>
+                        <p class="text-gray-600 text-sm">Exceed & 3Shape expertise</p>
                     </div>
                 </div>
 
-                <!-- CTA section -->
-                <div class="text-center">
-
-                    <div class="flex justify-center space-x-4">
-                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
-                            Get Started Today
-                        </a>
-                        <a href="#" class="border-2 border-blue-600 hover:bg-blue-700 text-black hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Get In Touch With Us -->
-        <section class="py-16 max-w-8xl">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col lg:flex-row gap-10">
-                    <!-- Left Div - Contact Options -->
-                    <div class="lg:w-1/2 bg-white p-8 rounded-xl shadow-md">
-                        <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Get In Touch With Us</h2>
-
-                        <div class="space-y-6">
-                            <!-- Free Sample Design -->
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <span class="text-blue-700 text-xl">🔬</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-gray-800">Try a Free Sample Design</h3>
-                                    <p class="text-gray-600 mt-2">Experience our quality with a complimentary design sample.</p>
-                                    <button class="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition-colors">
-                                        Request Sample
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- WhatsApp Chat -->
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <span class="text-blue-700 text-xl">💬</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-gray-800">Chat with Our Team</h3>
-                                    <p class="text-gray-600 mt-2">Available anytime for quick responses and support.</p>
-                                    <button class="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition-colors">
-                                        Start Conversation
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Schedule Meeting -->
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <span class="text-blue-700 text-xl">📅</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-gray-800">Schedule a Meeting</h3>
-                                    <p class="text-gray-600 mt-2">Book a consultation with our dental lab specialists.</p>
-                                    <button class="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition-colors">
-                                        Schedule Now
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Request Price List -->
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <span class="text-blue-700 text-xl">💰</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-gray-800">Request Price List</h3>
-                                    <p class="text-gray-600 mt-2">Get our competitive pricing for dental lab services.</p>
-                                    <button class="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition-colors">
-                                        Request Prices
-                                    </button>
-                                </div>
-                            </div>
+                <!-- Features section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <!-- Free Sample Design -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                            <span class="text-blue-700 text-xl">🔬</span>
                         </div>
-
-                        <!-- Contact Information -->
-                        <div class="mt-10 pt-8 border-t border-gray-200">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Direct Contact</h3>
-                            <div class="space-y-3">
-                                <div class="flex items-center">
-                                    <span class="text-blue-600 mr-3">📧</span>
-                                    <a href="mailto:skydent@skydentdesigns.com" class="text-gray-700 hover:text-blue-600">skydent@skydentdesigns.com</a>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="text-blue-600 mr-3">📞</span>
-                                    <a href="tel:+918810468697" class="text-gray-700 hover:text-blue-600">+91 88104 68697</a>
-                                </div>
-                            </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Try a Free Sample Design</h3>
+                            <p class="text-gray-600 text-sm">Experience our quality with a complimentary design sample.</p>
                         </div>
                     </div>
 
-                    <!-- Right Div - Value Proposition -->
-                    <div class="lg:w-1/2 bg-blue-900 text-white p-8 rounded-xl shadow-md">
-                        <h2 class="text-3xl font-bold mb-8 text-center">Solving Real Problems for Dental Labs</h2>
-
-                        <p class="text-xl mb-8 text-blue-100">Eliminate mistakes, save time, and protect client relationships with our professional dental lab services.</p>
-
-                        <p class="text-lg mb-8 font-medium">We solve the real problems labs face with:</p>
-
-                        <div class="space-y-6 mb-8">
-                            <div class="flex items-start">
-                                <div class="bg-blue-700 p-2 rounded-full mr-4 mt-1">
-                                    <span class="text-white text-xl">🎓</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold">Certified dental designers</h3>
-                                    <p class="text-blue-200">Expertly trained professionals with dental industry certifications</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div class="bg-blue-700 p-2 rounded-full mr-4 mt-1">
-                                    <span class="text-white text-xl">👨‍💼</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold">Dedicated Relationship Manager and Operations Manager</h3>
-                                    <p class="text-blue-200">Personalized support and streamlined operations for your lab</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div class="bg-blue-700 p-2 rounded-full mr-4 mt-1">
-                                    <span class="text-white text-xl">👁️</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-semibold">Senior design oversight</h3>
-                                    <p class="text-blue-200">Experienced professionals reviewing every project for quality assurance</p>
-                                </div>
-                            </div>
+                    <!-- WhatsApp Chat -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                            <span class="text-blue-700 text-xl">💬</span>
                         </div>
-
-                        <div class="bg-blue-800 p-6 rounded-lg mb-8">
-                            <p class="text-lg italic"></p>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Chat with Our Team</h3>
+                            <p class="text-gray-600 text-sm">Available anytime for quick responses and support.</p>
                         </div>
+                    </div>
 
-                        <p class="text-blue-100 mb-6">With dedicated partners covering every shift and on-floor support, we deliver precision and reliability at a price that makes sense for your lab.</p>
+                    <!-- Schedule Meeting -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                            <span class="text-blue-700 text-xl">📅</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Schedule a Meeting</h3>
+                            <p class="text-gray-600 text-sm">Book a consultation with our dental lab specialists.</p>
+                        </div>
+                    </div>
 
-                        <div class="flex items-start bg-blue-800 p-4 rounded-lg">
-                            <span class="text-xl mr-3">⭐</span>
-                            <p class="text-lg font-medium">That's why dental labs around the world trust us — because we deliver the same level of care as if your cases were our own.</p>
+                    <!-- Request Price List -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                            <span class="text-blue-700 text-xl">💰</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Request Price List</h3>
+                            <p class="text-gray-600 text-sm">Get our competitive pricing for dental lab services.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
 
         <!-- About Us -->
@@ -565,24 +482,11 @@
                     </div>
                 </div>
 
-                <!-- CTA Section -->
-                <div class="text-center bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-10 shadow-lg">
-                    <h2 class="text-3xl font-bold text-white mb-6">Join Our Global Dental Lab Family</h2>
-                    <p class="text-blue-100 text-lg max-w-2xl mx-auto mb-8">Experience the difference of working with a dedicated partner focused on your success.</p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#" class="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md">
-                            Start Your First Case
-                        </a>
-                        <a href="#" class="border border-white text-white hover:bg-white/10 font-semibold py-3 px-8 rounded-lg transition duration-300">
-                            Contact Our Team
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
 
-        <!-- Why Labs Choose Us -->
+        <!-- Premium Dental Lab Solutions -->
         <section class="py-16">
             <div class="container mx-auto px-4 max-w-8xl">
                 <div class="text-center mb-12">
@@ -591,96 +495,14 @@
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-10">
-                    <!-- Left Column - Why Labs Choose Us -->
+                    <!-- Left Column - Image dedicated to How to Start & Pay -->
                     <div class="lg:w-1/2">
-                        <div class="bg-white rounded-xl shadow-md p-8 h-full">
-                            <h2 class="text-3xl font-bold text-blue-900 mb-8 pb-4 border-b border-gray-200">Why Labs Choose Us</h2>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <!-- Dedicated Managers -->
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i class="fas fa-user-tie text-blue-700 text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Dedicated Managers</h3>
-                                        <p class="text-gray-600 text-sm">Every case tracked with accountability</p>
-                                    </div>
-                                </div>
-
-                                <!-- Direct Communication Portal -->
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i class="fas fa-comments text-blue-700 text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Direct Communication</h3>
-                                        <p class="text-gray-600 text-sm">Share cases and track progress easily</p>
-                                    </div>
-                                </div>
-
-                                <!-- Error-Free Results -->
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i class="fas fa-check-circle text-blue-700 text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Error-Free Results</h3>
-                                        <p class="text-gray-600 text-sm">Quality verified before delivery</p>
-                                    </div>
-                                </div>
-
-                                <!-- Reliable Turnaround -->
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i class="fas fa-stopwatch text-blue-700 text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Reliable Turnaround</h3>
-                                        <p class="text-gray-600 text-sm">From 30-minute urgent to next-day cases</p>
-                                    </div>
-                                </div>
-
-                                <!-- Trusted by Dentists & Lab Owners -->
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i class="fas fa-tooth text-blue-700 text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Industry Trusted</h3>
-                                        <p class="text-gray-600 text-sm">Eliminate remakes and missed deadlines</p>
-                                    </div>
-                                </div>
-
-                                <!-- No Hidden Costs -->
-                                <div class="flex items-start">
-                                    <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                        <i class="fas fa-ban text-blue-700 text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-semibold text-gray-800 mb-1">No Hidden Costs</h3>
-                                        <p class="text-gray-600 text-sm">Transparent, predictable pricing</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Stats Section -->
-                            <div class="mt-10 pt-8 border-t border-gray-200">
-                                <div class="grid grid-cols-3 gap-4 text-center">
-                                    <div>
-                                        <p class="text-3xl font-bold text-blue-900">99.9%</p>
-                                        <p class="text-gray-600 text-sm">On-Time Delivery</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-3xl font-bold text-blue-900">100+</p>
-                                        <p class="text-gray-600 text-sm">Labs Served</p>
-                                    </div>
-                                    <div>
-                                        <p class="text-3xl font-bold text-blue-900">24/7</p>
-                                        <p class="text-gray-600 text-sm">Support Available</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
+                            <!-- Image with full height and width -->
+                            <img
+                                src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80"
+                                alt="Dental lab technician working on digital dental design process"
+                                class="w-full h-full object-cover rounded-xl">
                         </div>
                     </div>
 
@@ -770,6 +592,156 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- Why Labs Choose Us -->
+        <section class="why-choose-us py-20 relative">
+            <!-- Subtle Background Pattern -->
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+
+            <div class="container mx-auto px-6 relative z-10 max-w-7xl">
+
+                <!-- Heading -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">Why Labs Choose Us</h2>
+                    <div class="h-1 w-24 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto mb-6 rounded-full"></div>
+                    <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                        Discover the advantages that make us the preferred partner for dental labs nationwide
+                    </p>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Item 1 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Dedicated Managers</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            Relationship + Operations Managers ensure every case is tracked and delivered with accountability.
+                        </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Direct Communication</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            Share cases, preferences, and track progress easily.
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Error-Free Results</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            Margins, occlusion, contacts, and esthetics verified before delivery.
+                        </p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-stopwatch"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Reliable Turnaround</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            From urgent 30-minute needs to next-day cases.
+                        </p>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Trusted by Professionals</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            We eliminate common issues: remakes, wasted time, poor esthetics, and missed deadlines.
+                        </p>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Clear Communication</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            Every instruction documented, no details lost.
+                        </p>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">No Hidden Costs</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            Transparent, predictable pricing.
+                        </p>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Flexible Billing</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            Convenient payment through bank transfer, credit card, or debit card.
+                        </p>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="group bg-white/95 rounded-2xl p-6 flex flex-col h-full border border-blue-100/20 shadow-md 
+                  hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex flex-col items-center text-center mb-4">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 text-blue-700 text-xl mb-3">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800">Scalable Support</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-center flex-grow">
+                            Supporting boutique labs, mid-size labs, and large operations alike.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
 
         <!-- Our Process & Workflow -->
@@ -979,211 +951,150 @@
                     </div>
                 </div>
             </div>
-
-            
         </section>
 
 
         <!-- Trust & Credentials -->
-        <section class="py-16">
+        <section class="trust-credentials py-20">
             <div class="container mx-auto px-4 max-w-8xl">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold mb-4">Trust & Credentials</h2>
-                    <p class="text-lg max-w-2xl mx-auto">Our commitment to excellence is demonstrated through our certifications, global reach, and proven track record</p>
+                    <span class="inline-block bg-blue-100 text-black text-sm font-semibold px-4 py-1 rounded-full mb-4">PROVEN EXCELLENCE</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Trust & Credentials</h2>
+                    <div class="h-1.5 w-20 bg-blue-600 mx-auto mb-6 rounded-full"></div>
+                    <p class="text-xl text-white max-w-3xl mx-auto leading-relaxed">Our commitment to excellence is demonstrated through our certifications, global reach, and proven track record</p>
                 </div>
 
                 <!-- Credentials Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     <!-- 3Shape Certified Designers -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-award text-green-600 text-2xl"></i>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-award text-green-600 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">50+ 3Shape Certified Designers</h3>
-                        <p class="text-gray-600 text-center mb-4">Our team of 50+ certified designers and 15 support staff is structured to handle high daily volumes while maintaining quality and consistency.</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">50+ 3Shape Certified Designers</h3>
+                        <p class="text-gray-700 text-center mb-6 leading-relaxed">Our team of 50+ certified designers and 15 support staff is structured to handle high daily volumes while maintaining quality and consistency.</p>
 
-                        <div class="space-y-4">
+                        <div class="space-y-5">
                             <div class="flex items-start">
-                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                                    <i class="fas fa-calculator text-green-600 text-xs"></i>
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-calculator text-green-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">2,000+ Units Capacity Per Day</p>
-                                    <p class="text-sm text-gray-600">(50 designers × 40 units)</p>
+                                    <p class="text-gray-900 font-semibold">2,000+ Units Capacity Per Day</p>
+                                    <p class="text-sm text-gray-600 mt-1">(50 designers × 40 units)</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                                    <i class="fas fa-check-circle text-green-600 text-xs"></i>
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">3-Level Quality Check</p>
-                                    <p class="text-sm text-gray-600">(Designer → Senior Review → Final QA)</p>
+                                    <p class="text-gray-900 font-semibold">3-Level Quality Check</p>
+                                    <p class="text-sm text-gray-600 mt-1">(Designer → Senior Review → Final QA)</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                                    <i class="fas fa-clock text-green-600 text-xs"></i>
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-clock text-green-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">Flexible Turnaround</p>
-                                    <p class="text-sm text-gray-600">(30 mins for urgent → 12h for standard cases)</p>
+                                    <p class="text-gray-900 font-semibold">Flexible Turnaround</p>
+                                    <p class="text-sm text-gray-600 mt-1">(30 mins for urgent → 12h for standard cases)</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- 24/7 Global Support -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-globe text-blue-600 text-2xl"></i>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-globe-americas text-blue-600 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">24/7 Global Support</h3>
-                        <p class="text-gray-600 text-center mb-4">Our global dental partners rely on us for consistency and reliability.</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">24/7 Global Support</h3>
+                        <p class="text-gray-700 text-center mb-6 leading-relaxed">Our global dental partners rely on us for consistency and reliability.</p>
 
-                        <div class="space-y-4">
+                        <div class="space-y-5">
                             <div class="flex items-start">
-                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                                    <i class="fas fa-truck text-blue-600 text-xs"></i>
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-truck text-blue-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">99% On-Time Delivery</p>
-                                    <p class="text-sm text-gray-600">backed by dedicated shift coverage across time zones</p>
+                                    <p class="text-gray-900 font-semibold">99% On-Time Delivery</p>
+                                    <p class="text-sm text-gray-600 mt-1">backed by dedicated shift coverage across time zones</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                                    <i class="fas fa-handshake text-blue-600 text-xs"></i>
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-handshake text-blue-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">100+ Labs Worldwide</p>
-                                    <p class="text-sm text-gray-600">strong, ongoing relationships in USA, Canada, UK & Australia</p>
+                                    <p class="text-gray-900 font-semibold">100+ Labs Worldwide</p>
+                                    <p class="text-sm text-gray-600 mt-1">strong, ongoing relationships in USA, Canada, UK & Australia</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                                    <i class="fas fa-headset text-blue-600 text-xs"></i>
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
+                                    <i class="fas fa-headset text-blue-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">24/7 Support</p>
-                                    <p class="text-sm text-gray-600">real people, not bots, available any time you need</p>
+                                    <p class="text-gray-900 font-semibold">24/7 Support</p>
+                                    <p class="text-sm text-gray-600 mt-1">real people, not bots, available any time you need</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Crowns, Bridges, Implants -->
-                    <!-- Crowns, Bridges, Implants -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-tooth text-purple-600 text-2xl"></i>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tooth text-purple-600 text-3xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">1000+ Designs Daily</h3>
-                        <p class="text-gray-600 text-center">Crowns, bridges, and implants handled with precision every day</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">1000+ Designs Daily</h3>
+                        <p class="text-gray-700 text-center mb-6 leading-relaxed">Crowns, bridges, and implants handled with precision every day</p>
 
-                        <div class="mt-6 space-y-5">
+                        <div class="space-y-5">
                             <div class="flex items-start">
-                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
                                     <i class="fas fa-user text-purple-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">50+ Certified Designers</p>
-                                    <p class="text-sm text-gray-600">each capable of handling ~40-50 units/day</p>
+                                    <p class="text-gray-900 font-semibold">50+ Certified Designers</p>
+                                    <p class="text-sm text-gray-600 mt-1">each capable of handling ~40-50 units/day</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
                                     <i class="fas fa-headset text-purple-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">10+ Operations & Support Staff</p>
-                                    <p class="text-sm text-gray-600">ensuring smooth workflows and communication</p>
+                                    <p class="text-gray-900 font-semibold">10+ Operations & Support Staff</p>
+                                    <p class="text-sm text-gray-600 mt-1">ensuring smooth workflows and communication</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
                                     <i class="fas fa-star text-purple-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">4 Partner Leads</p>
-                                    <p class="text-sm text-gray-600">overseeing quality, training, and case consistency</p>
+                                    <p class="text-gray-900 font-semibold">4 Partner Leads</p>
+                                    <p class="text-sm text-gray-600 mt-1">overseeing quality, training, and case consistency</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
                                     <i class="fas fa-chart-line text-purple-600 text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-800 font-medium">1100+ Units Designed Daily</p>
-                                    <p class="text-sm text-gray-600">managed with review and quality checks across all shifts</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dedicated Team -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-users text-amber-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">10+ Dedicated Team</h3>
-                        <p class="text-gray-600 text-center">Managers & on-floor support for smooth daily workflow</p>
-                        <div class="flex justify-center mt-4 space-x-3">
-                            <div class="text-center">
-                                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white mx-auto">RM</div>
-                                <span class="text-xs mt-1 block text-black">Relationship Managers</span>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white mx-auto">OM</div>
-                                <span class="text-xs mt-1 block text-black">Operations Managers</span>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white mx-auto">DS</div>
-                                <span class="text-xs mt-1 block text-black">Design Support</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right-Sized Teams -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow md:col-span-2">
-                        <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-chart-line text-teal-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Right-Sized Teams</h3>
-                        <p class="text-gray-600 text-center">Scaled to handle 100+ cases daily with precision and efficiency</p>
-
-                        <div class="mt-6 flex flex-col md:flex-row items-center justify-between">
-                            <div class="text-center mb-6 md:mb-0">
-                                <div class="text-3xl font-bold text-teal-700">100+</div>
-                                <div class="text-sm text-gray-600">Cases Daily</div>
-                            </div>
-
-                            <div class="text-center mb-6 md:mb-0">
-                                <div class="text-3xl font-bold text-teal-700">99.9%</div>
-                                <div class="text-sm text-gray-600">Accuracy Rate</div>
-                            </div>
-
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-teal-700">24h</div>
-                                <div class="text-sm text-gray-600">Avg. Turnaround</div>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 bg-gray-100 p-4 rounded-lg">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 text-teal-600">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm text-teal-700">Scalable teams ensure consistent quality regardless of volume</p>
+                                    <p class="text-gray-900 font-semibold">1100+ Units Designed Daily</p>
+                                    <p class="text-sm text-gray-600 mt-1">managed with review and quality checks across all shifts</p>
                                 </div>
                             </div>
                         </div>
@@ -1191,36 +1102,38 @@
                 </div>
 
                 <!-- Certifications Badges -->
-                <div class="mt-16 bg-white rounded-xl p-8 shadow-md">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Our Certifications</h3>
-                    <div class="flex flex-wrap justify-center gap-24">
-                        <div class="bg-gray-50 px-6 py-4 rounded-lg border border-gray-200 flex items-center">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                <span class="text-blue-700 font-bold">3S</span>
+                <div class="bg-white rounded-2xl p-10 shadow-lg border border-gray-100">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Certifications</h3>
+                    <p class="text-gray-700 text-center max-w-2xl mx-auto mb-10 leading-relaxed">We maintain the highest industry standards through our certifications and quality assurance processes.</p>
+
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex items-center w-full max-w-xs">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-5 flex-shrink-0">
+                                <span class="text-blue-700 font-bold text-xl">3S</span>
                             </div>
                             <div>
-                                <div class="font-semibold text-black">3Shape Certified</div>
-                                <div class="text-sm text-gray-600">Design Excellence</div>
+                                <div class="font-bold text-gray-900 text-lg">3Shape Certified</div>
+                                <div class="text-sm text-gray-600 mt-1">Design Excellence</div>
                             </div>
                         </div>
 
-                        <div class="bg-gray-50 px-6 py-4 rounded-lg border border-gray-200 flex items-center">
-                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                                <span class="text-green-700 font-bold">ISO</span>
+                        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex items-center w-full max-w-xs">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mr-5 flex-shrink-0">
+                                <span class="text-green-700 font-bold text-xl">ISO</span>
                             </div>
                             <div>
-                                <div class="font-semibold text-black">Quality Standards</div>
-                                <div class="text-sm text-gray-600">Process Excellence</div>
+                                <div class="font-bold text-gray-900 text-lg">Quality Standards</div>
+                                <div class="text-sm text-gray-600 mt-1">Process Excellence</div>
                             </div>
                         </div>
 
-                        <div class="bg-gray-50 px-6 py-4 rounded-lg border border-gray-200 flex items-center">
-                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                                <span class="text-purple-700 font-bold">CE</span>
+                        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex items-center w-full max-w-xs">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mr-5 flex-shrink-0">
+                                <span class="text-purple-700 font-bold text-xl">CE</span>
                             </div>
                             <div>
-                                <div class="font-semibold text-black">EU Compliance</div>
-                                <div class="text-sm text-gray-600">Medical Devices</div>
+                                <div class="font-bold text-gray-900 text-lg">EU Compliance</div>
+                                <div class="text-sm text-gray-600 mt-1">Medical Devices</div>
                             </div>
                         </div>
                     </div>
@@ -1229,7 +1142,195 @@
         </section>
 
 
-        <!-- Case Studies / Testimonials -->
+        <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Premium Products</h2>
+                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">Discover our exceptional range of dental lab solutions designed for precision and reliability</p>
+                </div>
+
+                <!-- Carousel Container -->
+                <div class="relative overflow-hidden">
+                    <div class="carousel-track flex space-x-6" style="animation: scroll 30s linear infinite;">
+                        <!-- Product 1 -->
+                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="h-56 bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center">
+                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-tooth text-5xl text-blue-600"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Premium Dental Crowns</h3>
+                                <p class="text-gray-600 mb-4">High-quality zirconia crowns with perfect fit and natural aesthetics.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-2xl font-bold text-blue-600">$149</span>
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="fas fa-cart-plus mr-2"></i> Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="h-56 bg-gradient-to-r from-green-100 to-teal-100 flex items-center justify-center">
+                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-teeth text-5xl text-green-600"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Dental Bridges</h3>
+                                <p class="text-gray-600 mb-4">Precision-crafted bridges for seamless tooth replacement.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-2xl font-bold text-green-600">$399</span>
+                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="fas fa-cart-plus mr-2"></i> Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="h-56 bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center">
+                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-gem text-5xl text-purple-600"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Porcelain Veneers</h3>
+                                <p class="text-gray-600 mb-4">Ultra-thin veneers for a perfect smile transformation.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-2xl font-bold text-purple-600">$249</span>
+                                    <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="fas fa-cart-plus mr-2"></i> Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="h-56 bg-gradient-to-r from-yellow-100 to-orange-100 flex items-center justify-center">
+                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-screwdriver text-5xl text-yellow-600"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Titanium Implants</h3>
+                                <p class="text-gray-600 mb-4">Biocompatible implants with exceptional durability.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-2xl font-bold text-yellow-600">$599</span>
+                                    <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="fas fa-cart-plus mr-2"></i> Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="h-56 bg-gradient-to-r from-red-100 to-pink-100 flex items-center justify-center">
+                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-teeth-open text-5xl text-red-600"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Dentures</h3>
+                                <p class="text-gray-600 mb-4">Comfortable and natural-looking complete and partial dentures.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-2xl font-bold text-red-600">$799</span>
+                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="fas fa-cart-plus mr-2"></i> Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Duplicates for seamless looping -->
+                        <!-- Product 1 (Duplicate) -->
+                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="h-56 bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center">
+                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-tooth text-5xl text-blue-600"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Premium Dental Crowns</h3>
+                                <p class="text-gray-600 mb-4">High-quality zirconia crowns with perfect fit and natural aesthetics.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-2xl font-bold text-blue-600">$149</span>
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="fas fa-cart-plus mr-2"></i> Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 (Duplicate) -->
+                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                            <div class="h-56 bg-gradient-to-r from-green-100 to-teal-100 flex items-center justify-center">
+                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <i class="fas fa-teeth text-5xl text-green-600"></i>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Dental Bridges</h3>
+                                <p class="text-gray-600 mb-4">Precision-crafted bridges for seamless tooth replacement.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-2xl font-bold text-green-600">$399</span>
+                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                        <i class="fas fa-cart-plus mr-2"></i> Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Dots -->
+                <div class="flex justify-center space-x-3 mt-8">
+                    <div class="w-3 h-3 bg-blue-300 rounded-full cursor-pointer"></div>
+                    <div class="w-3 h-3 bg-blue-600 rounded-full cursor-pointer"></div>
+                    <div class="w-3 h-3 bg-blue-300 rounded-full cursor-pointer"></div>
+                </div>
+            </div>
+
+            <style>
+                .carousel-track {
+                    display: flex;
+                    width: max-content;
+                    animation: scroll 30s linear infinite;
+                }
+
+                .carousel-track:hover {
+                    animation-play-state: paused;
+                }
+
+                @keyframes scroll {
+                    0% {
+                        transform: translateX(0);
+                    }
+
+                    100% {
+                        transform: translateX(calc(-50% - 1.5rem));
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .carousel-track {
+                        animation-duration: 40s;
+                    }
+                }
+            </style>
+        </section>
+
+        <!-- Font Awesome Kit (replace with your own) -->
+        <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+
+
+
         <!-- Case Studies / Testimonials -->
         <section class="py-12 md:px-24" aria-labelledby="testimonials">
             <div class="max-w-8xl mx-auto px-6">
@@ -1507,7 +1608,7 @@
                     <img src="img/skydent logo.png" alt="skydent">
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-black">DentalLab Team</h3>
+                    <h3 class="text-xl font-bold mb-4 text-black">Skydent Design</h3>
                     <p class="text-black">Your extended dental lab team providing precision, reliability, and partnership.</p>
                 </div>
                 <div>
@@ -1534,9 +1635,6 @@
                             <i class="fab fa-facebook"></i>
                         </a>
                         <a href="#" class="text-2xl text-black hover:text-blue-700">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#" class="text-2xl text-black hover:text-blue-700">
@@ -1553,7 +1651,7 @@
                 </div>
             </div>
             <div class="border-t border-blue-800 mt-8 pt-8 text-center text-black">
-                <p>&copy; <?php echo date('Y'); ?> DentalLab Team. All rights reserved.</p>
+                <p>&copy; <?php echo date('Y'); ?> Skydent Design. All rights reserved.</p>
             </div>
         </div>
     </footer>
