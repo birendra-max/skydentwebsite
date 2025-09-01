@@ -878,75 +878,95 @@
                 <!-- Section Header -->
                 <div class="text-center mb-16">
                     <h2 class="text-4xl font-bold mb-4">Professional Dental Lab Services</h2>
-                    <p class="text-lg  max-w-2xl mx-auto">Comprehensive dental design solutions crafted for the daily needs of labs and clinicians</p>
+                    <p class="text-lg max-w-2xl mx-auto">Comprehensive dental design solutions crafted for the daily needs of labs and clinicians</p>
                 </div>
 
                 <!-- Services Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Crown & Bridge Designs -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-blue-50">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
-                            <i class="fas fa-crown text-xl"></i>
+                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
+                                <i class="fas fa-crown text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Crown & Bridge Designs</h3>
+                            <p class="text-gray-600">Precise, reliable, and consistent dental restorations.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Crown & Bridge Designs</h3>
-                        <p class="text-gray-600">Precise, reliable, and consistent dental restorations.</p>
                     </div>
 
                     <!-- Implant Restorations -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-blue-50">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
-                            <i class="fas fa-tooth text-xl"></i>
+                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c5b8c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
+                                <i class="fas fa-tooth text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Implant Restorations</h3>
+                            <p class="text-gray-600">Single, multiple, and complex cases with accurate emergence profiles.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Implant Restorations</h3>
-                        <p class="text-gray-600">Single, multiple, and complex cases with accurate emergence profiles.</p>
                     </div>
 
                     <!-- Full Arch & All-on-X Restorations -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-blue-50">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
-                            <i class="fas fa-teeth text-xl"></i>
+                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
+                                <i class="fas fa-teeth text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Full Arch & All-on-X Restorations</h3>
+                            <p class="text-gray-600">Comprehensive design for fixed and removable prosthetics.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Full Arch & All-on-X Restorations</h3>
-                        <p class="text-gray-600">Comprehensive design for fixed and removable prosthetics.</p>
                     </div>
 
                     <!-- Smile Design & Aesthetic Cases -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-blue-50">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
-                            <i class="fas fa-smile text-xl"></i>
+                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1535254979300-3c2c7eca2d2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
+                                <i class="fas fa-smile text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Smile Design & Aesthetic Cases</h3>
+                            <p class="text-gray-600">Natural esthetics with patient-specific outcomes.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Smile Design & Aesthetic Cases</h3>
-                        <p class="text-gray-600">Natural esthetics with patient-specific outcomes.</p>
                     </div>
 
                     <!-- Removable Prosthetics -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-blue-50">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
-                            <i class="fas fa-teeth-open text-xl"></i>
+                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
+                                <i class="fas fa-teeth-open text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Removable Prosthetics</h3>
+                            <p class="text-gray-600">Partial frameworks, dentures, and hybrid solutions.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Removable Prosthetics</h3>
-                        <p class="text-gray-600">Partial frameworks, dentures, and hybrid solutions.</p>
                     </div>
 
                     <!-- Custom Abutments & Bars -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-blue-50">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
-                            <i class="fas fa-cogs text-xl"></i>
+                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
+                                <i class="fas fa-cogs text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Custom Abutments & Bars</h3>
+                            <p class="text-gray-600">Tailored implant and full-arch solutions.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Custom Abutments & Bars</h3>
-                        <p class="text-gray-600">Tailored implant and full-arch solutions.</p>
                     </div>
-
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-44 items-center justify-center bg-gray-50 p-8 rounded-2xl shadow-sm my-8">
                     <!-- Left Column - Digital Wax-Ups & Temporaries -->
-                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-blue-50 flex-1 max-w-md">
-                        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600">
-                            <i class="fas fa-pencil-alt text-xl"></i>
+                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 flex-1 max-w-md overflow-hidden group min-h-[250px] flex items-center justify-center">
+                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
+                                <i class="fas fa-pencil-alt text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Digital Wax-Ups & Temporaries</h3>
+                            <p class="text-gray-600">Diagnostic and provisional dental cases.</p>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Digital Wax-Ups & Temporaries</h3>
-                        <p class="text-gray-600">Diagnostic and provisional dental cases.</p>
                     </div>
 
                     <!-- Right Column - CTA Section -->
@@ -958,8 +978,9 @@
                         </button>
                     </div>
                 </div>
-
             </div>
+
+            
         </section>
 
 
@@ -1209,6 +1230,7 @@
 
 
         <!-- Case Studies / Testimonials -->
+        <!-- Case Studies / Testimonials -->
         <section class="py-12 md:px-24" aria-labelledby="testimonials">
             <div class="max-w-8xl mx-auto px-6">
                 <!-- SEO Heading -->
@@ -1217,10 +1239,10 @@
                 </h2>
 
                 <!-- Horizontal scrolling container -->
-                <div class="testimonial-container" style="overflow: hidden; position: relative;">
-                    <div class="testimonial-scroller flex pb-6" style="width: max-content;">
-                        <!-- Testimonial 1 -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0" style="width: 400px;">
+                <div class="testimonial-container overflow-hidden relative">
+                    <div class="testimonial-scroller flex pb-6">
+                        <!-- ✅ Original testimonials -->
+                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-quote-left text-blue-500 text-2xl mt-1"></i>
                                 <div>
@@ -1233,8 +1255,7 @@
                             </div>
                         </article>
 
-                        <!-- Testimonial 2 -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0" style="width: 400px;">
+                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-quote-left text-green-500 text-2xl mt-1"></i>
                                 <div>
@@ -1247,8 +1268,7 @@
                             </div>
                         </article>
 
-                        <!-- Testimonial 3 -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0" style="width: 400px;">
+                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-quote-left text-purple-500 text-2xl mt-1"></i>
                                 <div>
@@ -1261,8 +1281,7 @@
                             </div>
                         </article>
 
-                        <!-- Testimonial 4 -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0" style="width: 400px;">
+                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-quote-left text-yellow-500 text-2xl mt-1"></i>
                                 <div>
@@ -1275,8 +1294,7 @@
                             </div>
                         </article>
 
-                        <!-- Testimonial 5 -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0" style="width: 400px;">
+                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-quote-left text-red-500 text-2xl mt-1"></i>
                                 <div>
@@ -1289,9 +1307,8 @@
                             </div>
                         </article>
 
-                        <!-- Duplicate content for seamless looping -->
-                        <!-- Testimonial 1 (Duplicate) -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0" style="width: 400px;">
+                        <!-- ✅ Duplicate testimonials (for seamless loop) -->
+                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-quote-left text-blue-500 text-2xl mt-1"></i>
                                 <div>
@@ -1304,8 +1321,7 @@
                             </div>
                         </article>
 
-                        <!-- Testimonial 2 (Duplicate) -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0" style="width: 400px;">
+                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-quote-left text-green-500 text-2xl mt-1"></i>
                                 <div>
@@ -1322,7 +1338,6 @@
             </div>
 
             <style>
-                /* Animation for the horizontal scrolling effect */
                 @keyframes scrollTestimonialsHorizontal {
                     0% {
                         transform: translateX(0);
@@ -1334,40 +1349,18 @@
                 }
 
                 .testimonial-scroller {
+                    display: flex;
+                    width: max-content;
                     animation: scrollTestimonialsHorizontal 40s linear infinite;
                 }
 
-                .testimonial-scroller:hover {
+                /* Pause on hover */
+                .testimonial-container:hover .testimonial-scroller {
                     animation-play-state: paused;
                 }
             </style>
-
-            <script>
-                // Initialize the animation when the page loads
-                document.addEventListener('DOMContentLoaded', function() {
-                    const scroller = document.querySelector('.testimonial-scroller');
-                    const container = document.querySelector('.testimonial-container');
-
-                    // Reset animation when it completes to create seamless loop
-                    scroller.addEventListener('animationiteration', () => {
-                        // Briefly pause and reset to avoid jumpy behavior
-                        scroller.style.animation = 'none';
-                        setTimeout(() => {
-                            scroller.style.animation = 'scrollTestimonialsHorizontal 40s linear infinite';
-                        }, 50);
-                    });
-
-                    // Pause on hover for better readability
-                    container.addEventListener('mouseenter', () => {
-                        scroller.style.animationPlayState = 'paused';
-                    });
-
-                    container.addEventListener('mouseleave', () => {
-                        scroller.style.animationPlayState = 'running';
-                    });
-                });
-            </script>
         </section>
+
 
 
         <section class="py-16 md:px-24">
@@ -1400,8 +1393,9 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold">Fast Turnaround</h4>
-                                <p class="text-sm text-blue-200 mt-1">24-48 hour standard delivery</p>
+                                <p class="text-sm text-blue-200 mt-1">30 minutes to 12 hours standard delivery</p>
                             </div>
+
                         </div>
 
                         <div class="flex items-start">
@@ -1451,8 +1445,8 @@
                                 <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition" placeholder="John Smith">
                             </div>
                             <div>
-                                <label class="block text-gray-700 font-medium mb-2">Clinic / Lab Name *</label>
-                                <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition" placeholder="Precision Dental Lab">
+                                <label class="block text-gray-700 font-medium mb-2">Lab Name *</label>
+                                <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition" placeholder="Skydent Dental Designs">
                             </div>
                         </div>
 
@@ -1505,60 +1499,60 @@
 
     </main>
     <!-- Footer -->
-    <footer class="bg-black text-white py-12">
+    <footer class="bg-white text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Logo -->
                 <div>
-                    <img src="img/skydent logo.png" alt="skydent" class="w-[20vh] h-[10vh]">
+                    <img src="img/skydent logo.png" alt="skydent">
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">DentalLab Team</h3>
-                    <p class="text-blue-200">Your extended dental lab team providing precision, reliability, and partnership.</p>
+                    <h3 class="text-xl font-bold mb-4 text-black">DentalLab Team</h3>
+                    <p class="text-black">Your extended dental lab team providing precision, reliability, and partnership.</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <h3 class="text-xl font-bold mb-4 text-black">Contact Us</h3>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-blue-200"></i>
-                            <span class="text-blue-200">123 Dental Street, Care City</span>
+                            <i class="fas fa-map-marker-alt mr-2 text-black"></i>
+                            <a href="https://maps.app.goo.gl/zEPGXghbGuBMQdATA" class="text-black">Noida, Uttar Pradesh, India</a>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-blue-200"></i>
-                            <span class="text-blue-200">+91 88104 68697</span>
+                            <i class="fas fa-phone mr-2 text-black"></i>
+                            <span class="text-black">+91 88104 68697</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-blue-200"></i>
-                            <span class="text-blue-200">skydent@skydentdesigns.com</span>
+                            <i class="fas fa-envelope mr-2 text-black"></i>
+                            <span class="text-black">skydent@skydentdesigns.com</span>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-2xl text-blue-200 hover:text-white">
+                    <h3 class="text-xl font-bold mb-4 text-black">Connect With Us</h3>
+                    <div class="flex space-x-4 text-black">
+                        <a href="#" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="text-2xl text-blue-200 hover:text-white">
+                        <a href="#" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="text-2xl text-blue-200 hover:text-white">
+                        <a href="#" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-2xl text-blue-200 hover:text-white">
+                        <a href="#" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                     <div class="mt-6">
-                        <h4 class="font-bold mb-2">Payment Methods</h4>
+                        <h4 class="font-bold mb-2 text-black">Payment Methods</h4>
                         <div class="flex items-center">
-                            <i class="fab fa-cc-paypal text-3xl mr-2 text-blue-200"></i>
-                            <span class="text-blue-200">PayPal Accepted</span>
+                            <i class="fab fa-cc-paypal text-3xl mr-2 text-black"></i>
+                            <span class="text-black">PayPal Accepted</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-black">
                 <p>&copy; <?php echo date('Y'); ?> DentalLab Team. All rights reserved.</p>
             </div>
         </div>
