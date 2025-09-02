@@ -41,7 +41,163 @@
             /* For body */
         }
     </style>
+
+    <style>
+        .crown-gallery {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .gallery-track {
+            animation: slide 40s linear infinite;
+            width: max-content;
+        }
+
+        .gallery-container:hover .gallery-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 640px) {
+            .gallery-slide {
+                min-width: 160px !important;
+                height: 160px !important;
+            }
+
+            .gallery-track {
+                animation-duration: 30s;
+            }
+
+            .dots-container {
+                display: flex !important;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 768px) {
+            .gallery-slide {
+                min-width: 200px !important;
+                height: 200px !important;
+            }
+
+            .dots-container {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .dots-container {
+                display: none !important;
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .gallery-track {
+                animation: none;
+            }
+
+            .nav-arrow {
+                opacity: 1 !important;
+            }
+        }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.gallery-track');
+            const slides = document.querySelectorAll('.gallery-slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
+            const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
+
+            // Calculate total original slides (excluding duplicates)
+            const originalSlides = slides.length / 2;
+            let currentIndex = 0;
+            let autoSlideInterval;
+
+            // Function to update dots indicator
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('bg-blue-600');
+                        dot.classList.remove('bg-blue-300');
+                    } else {
+                        dot.classList.remove('bg-blue-600');
+                        dot.classList.add('bg-blue-300');
+                    }
+                });
+            }
+
+            // Start auto sliding
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    // The animation handles the sliding, we just update the dots
+                    currentIndex = (currentIndex + 1) % originalSlides;
+                    updateDots();
+                }, 4000);
+            }
+
+            // Stop auto sliding
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+
+            // Manual navigation
+            nextBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                currentIndex = (currentIndex + 1) % originalSlides;
+                updateDots();
+                startAutoSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                currentIndex = (currentIndex - 1 + originalSlides) % originalSlides;
+                updateDots();
+                startAutoSlide();
+            });
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopAutoSlide();
+                    currentIndex = index;
+                    updateDots();
+                    startAutoSlide();
+                });
+            });
+
+            // Pause auto slide on hover
+            const galleryContainer = document.querySelector('.gallery-container');
+            galleryContainer.addEventListener('mouseenter', stopAutoSlide);
+            galleryContainer.addEventListener('mouseleave', startAutoSlide);
+
+            // Initialize and start auto slide
+            updateDots();
+            startAutoSlide();
+
+            // Handle reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                stopAutoSlide();
+                track.style.animation = 'none';
+
+                // Make arrows always visible
+                document.querySelectorAll('.nav-arrow').forEach(arrow => {
+                    arrow.style.opacity = '1';
+                });
+            }
+        });
+    </script>
+
 </head>
 
 <body class="bg-slate-500 text-white">
@@ -500,7 +656,7 @@
                         <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
                             <!-- Image with full height and width -->
                             <img
-                                src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80"
+                                src="img/Untitled design.png"
                                 alt="Dental lab technician working on digital dental design process"
                                 class="w-full h-full object-cover rounded-xl">
                         </div>
@@ -595,11 +751,11 @@
 
 
         <!-- Why Labs Choose Us -->
-        <section class="why-choose-us py-20 relative">
+        <section class="why-choose-us md:py-16 relative">
             <!-- Subtle Background Pattern -->
             <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
 
-            <div class="container mx-auto px-6 relative z-10 max-w-7xl">
+            <div class="container mx-auto px-6 relative z-10 max-w-8xl">
 
                 <!-- Heading -->
                 <div class="text-center mb-16">
@@ -745,7 +901,7 @@
 
 
         <!-- Our Process & Workflow -->
-        <section class="py-16 md:py-24 md:px-24">
+        <section class="py-16 md:py-16 md:px-24">
             <!-- Decorative elements -->
             <div class="absolute top-10 left-5 w-72 h-72 bg-blue-100/30 rounded-full blur-xl"></div>
             <div class="absolute bottom-10 right-5 w-96 h-96 bg-teal-100/30 rounded-full blur-xl"></div>
@@ -845,117 +1001,346 @@
 
 
         <!-- Digital Dental Design Services -->
-        <section class="py-16">
-            <div class="container mx-auto px-4 max-w-8xl">
-                <!-- Section Header -->
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold mb-4">Professional Dental Lab Services</h2>
-                    <p class="text-lg max-w-2xl mx-auto">Comprehensive dental design solutions crafted for the daily needs of labs and clinicians</p>
-                </div>
-
-                <!-- Services Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Crown & Bridge Designs -->
-                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
-                                <i class="fas fa-crown text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Crown & Bridge Designs</h3>
-                            <p class="text-gray-600">Precise, reliable, and consistent dental restorations.</p>
-                        </div>
+        <section class="md:py-16">
+            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Crown & Bridge Designs</h2>
+                        <p class="text-lg text-gray-600">Precision-driven solutions for strength, aesthetics, and long-lasting performance</p>
                     </div>
 
-                    <!-- Implant Restorations -->
-                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c5b8c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
-                                <i class="fas fa-tooth text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Implant Restorations</h3>
-                            <p class="text-gray-600">Single, multiple, and complex cases with accurate emergence profiles.</p>
-                        </div>
-                    </div>
-
-                    <!-- Full Arch & All-on-X Restorations -->
-                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
-                                <i class="fas fa-teeth text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Full Arch & All-on-X Restorations</h3>
-                            <p class="text-gray-600">Comprehensive design for fixed and removable prosthetics.</p>
-                        </div>
-                    </div>
-
-                    <!-- Smile Design & Aesthetic Cases -->
-                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1535254979300-3c2c7eca2d2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
-                                <i class="fas fa-smile text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Smile Design & Aesthetic Cases</h3>
-                            <p class="text-gray-600">Natural esthetics with patient-specific outcomes.</p>
-                        </div>
-                    </div>
-
-                    <!-- Removable Prosthetics -->
-                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
-                                <i class="fas fa-teeth-open text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Removable Prosthetics</h3>
-                            <p class="text-gray-600">Partial frameworks, dentures, and hybrid solutions.</p>
-                        </div>
-                    </div>
-
-                    <!-- Custom Abutments & Bars -->
-                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 overflow-hidden group min-h-[250px] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
-                                <i class="fas fa-cogs text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Custom Abutments & Bars</h3>
-                            <p class="text-gray-600">Tailored implant and full-arch solutions.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row gap-44 items-center justify-center bg-gray-50 p-8 rounded-2xl shadow-sm my-8">
-                    <!-- Left Column - Digital Wax-Ups & Temporaries -->
-                    <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-50 flex-1 max-w-md overflow-hidden group min-h-[250px] flex items-center justify-center">
-                        <div class="absolute inset-0 bg-cover bg-center transition-all duration-300 group-hover:opacity-20 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
-                        <div class="relative z-10 transition-all duration-300 opacity-0 group-hover:opacity-100 text-center">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 mx-auto">
-                                <i class="fas fa-pencil-alt text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Digital Wax-Ups & Temporaries</h3>
-                            <p class="text-gray-600">Diagnostic and provisional dental cases.</p>
-                        </div>
-                    </div>
-
-                    <!-- Right Column - CTA Section -->
-                    <div class="flex-1 max-w-lg text-center md:text-left">
-                        <h3 class="text-2xl text-black font-semibold mb-4">Need a dental service not listed here?</h3>
-                        <p class="mb-6 text-gray-700">We specialize in custom solutions for unique dental lab challenges.</p>
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
-                            Contact Us About Your Dental Project
+                    <div class="gallery-container relative">
+                        <!-- Navigation arrows (only show on hover) -->
+                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-left text-blue-600"></i>
                         </button>
+                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-right text-blue-600"></i>
+                        </button>
+
+                        <!-- Gallery Track -->
+                        <div class="gallery-track flex">
+                            <!-- Original Images -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/4 Units Anterior.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6-0 Units crown.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6 Units Anterior.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6 Units crown.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6-1 Units Anterior.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6-1 Units crown.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+
+                            <!-- Duplicate images for seamless looping -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/4 Units Anterior.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6-0 Units crown.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6 Units Anterior.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6 Units crown.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6-1 Units Anterior.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/6-1 Units crown.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/skydent logo.png" alt="Skydent Dental Solutions" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dots indicator for mobile -->
+                    <div class="flex justify-center mt-8 space-x-2 dots-container">
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
                     </div>
                 </div>
             </div>
+
+            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Digital Wax-Ups & Temporaries</h2>
+                        <p class="text-lg text-gray-600">Accurate previews and reliable temporaries for confident treatment planning</p>
+                    </div>
+
+                    <div class="gallery-container relative">
+                        <!-- Navigation arrows (only show on hover) -->
+                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-left text-blue-600"></i>
+                        </button>
+                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-right text-blue-600"></i>
+                        </button>
+
+                        <!-- Gallery Track -->
+                        <div class="gallery-track flex">
+                            <!-- Original Images -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW MO.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW MO+C.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW MO+C2.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/TEMP.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+
+                            <!-- Duplicate images for seamless looping -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW MO.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW MO+C.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/DW MO+C2.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/TEMP.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dots indicator for mobile -->
+                    <div class="flex justify-center mt-8 space-x-2 dots-container">
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Full Arch & All-on-X Restorations</h2>
+                        <p class="text-lg text-gray-600">Comprehensive solutions for stability, function, and natural esthetics</p>
+                    </div>
+
+                    <div class="gallery-container relative">
+                        <!-- Navigation arrows (only show on hover) -->
+                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-left text-blue-600"></i>
+                        </button>
+                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-right text-blue-600"></i>
+                        </button>
+
+                        <!-- Gallery Track -->
+                        <div class="gallery-track flex">
+                            <!-- Original Images -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Gingiva Crown.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Gingiva Crown1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Gingiva Crown1-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+
+                            <!-- Duplicate images for seamless looping -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Gingiva Crown.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Gingiva Crown1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Gingiva Crown1-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dots indicator for mobile -->
+                    <div class="flex justify-center mt-8 space-x-2 dots-container">
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Implant Restorations</h2>
+                        <p class="text-lg text-gray-600">Comprehensive solutions for stability, function, and natural esthetics</p>
+                    </div>
+
+                    <div class="gallery-container relative">
+                        <!-- Navigation arrows (only show on hover) -->
+                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-left text-blue-600"></i>
+                        </button>
+                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-right text-blue-600"></i>
+                        </button>
+
+                        <!-- Gallery Track -->
+                        <div class="gallery-track flex">
+                            <!-- Original Images -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Custom Abutment.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+
+                            <!-- Duplicate images for seamless looping -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Custom Abutment.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Dots indicator for mobile -->
+                    <div class="flex justify-center mt-8 space-x-2 dots-container">
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Removable Prosthetics</h2>
+                        <p class="text-lg text-gray-600">Comprehensive solutions for stability, function, and natural esthetics</p>
+                    </div>
+
+                    <div class="gallery-container relative">
+                        <!-- Navigation arrows (only show on hover) -->
+                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-left text-blue-600"></i>
+                        </button>
+                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                            <i class="fas fa-chevron-right text-blue-600"></i>
+                        </button>
+
+                        <!-- Gallery Track -->
+                        <div class="gallery-track flex">
+                            <!-- Original Images -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Customized Tray.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Customized Tray1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/NG7.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/NG_3.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/RPD.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/RPD-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+
+                            <!-- Duplicate images for seamless looping -->
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Customized Tray.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/Customized Tray1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/NG7.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/NG_3.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/RPD.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
+                                <img src="img/RPD-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dots indicator for mobile -->
+                    <div class="flex justify-center mt-8 space-x-2 dots-container">
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
 
         <!-- Trust & Credentials -->
-        <section class="trust-credentials py-20">
+        <section class="trust-credentials md:py-16">
             <div class="container mx-auto px-4 max-w-8xl">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
@@ -1141,305 +1526,204 @@
             </div>
         </section>
 
-
-        <section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
-            <div class="max-w-7xl mx-auto px-4">
-                <!-- Header -->
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Premium Products</h2>
-                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">Discover our exceptional range of dental lab solutions designed for precision and reliability</p>
+        <!-- Case Studies / Testimonials -->
+        <section class="testimonials-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Case Studies & Testimonials</h2>
+                    <p class="text-lg text-gray-600">Hear what our partners have to say about our services</p>
                 </div>
 
-                <!-- Carousel Container -->
-                <div class="relative overflow-hidden">
-                    <div class="carousel-track flex space-x-6" style="animation: scroll 30s linear infinite;">
-                        <!-- Product 1 -->
-                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <div class="h-56 bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center">
-                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                                    <i class="fas fa-tooth text-5xl text-blue-600"></i>
+                <div class="gallery-container relative">
+                    <!-- Navigation arrows -->
+                    <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                        <i class="fas fa-chevron-left text-blue-600"></i>
+                    </button>
+                    <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
+                        <i class="fas fa-chevron-right text-blue-600"></i>
+                    </button>
+
+                    <!-- Gallery Track -->
+                    <div class="gallery-track flex">
+                        <!-- Original testimonials -->
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-blue-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "Before working with them, we struggled with remakes and last-minute stress.
+                                            Now, every case arrives consistent and dependable — it truly feels like we added an in-house team without the overhead."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Owner, USA</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Premium Dental Crowns</h3>
-                                <p class="text-gray-600 mb-4">High-quality zirconia crowns with perfect fit and natural aesthetics.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-blue-600">$149</span>
-                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                        <i class="fas fa-cart-plus mr-2"></i> Order
-                                    </button>
-                                </div>
-                            </div>
+                            </article>
                         </div>
 
-                        <!-- Product 2 -->
-                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <div class="h-56 bg-gradient-to-r from-green-100 to-teal-100 flex items-center justify-center">
-                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                                    <i class="fas fa-teeth text-5xl text-green-600"></i>
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-green-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "Their precision and on-time delivery immediately reduced our chairside adjustments.
+                                            It has made a real difference in our daily efficiency."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Manager, Canada</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Dental Bridges</h3>
-                                <p class="text-gray-600 mb-4">Precision-crafted bridges for seamless tooth replacement.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-green-600">$399</span>
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                        <i class="fas fa-cart-plus mr-2"></i> Order
-                                    </button>
-                                </div>
-                            </div>
+                            </article>
                         </div>
 
-                        <!-- Product 3 -->
-                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <div class="h-56 bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center">
-                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                                    <i class="fas fa-gem text-5xl text-purple-600"></i>
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-purple-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "Complex implant cases were always a headache. With this team, I finally have confidence
+                                            that every design will be accurate and reliable."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Owner, UK</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Porcelain Veneers</h3>
-                                <p class="text-gray-600 mb-4">Ultra-thin veneers for a perfect smile transformation.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-purple-600">$249</span>
-                                    <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                        <i class="fas fa-cart-plus mr-2"></i> Order
-                                    </button>
-                                </div>
-                            </div>
+                            </article>
                         </div>
 
-                        <!-- Product 4 -->
-                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <div class="h-56 bg-gradient-to-r from-yellow-100 to-orange-100 flex items-center justify-center">
-                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                                    <i class="fas fa-screwdriver text-5xl text-yellow-600"></i>
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-yellow-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "The quality is steady, the communication is clear, and we never face surprises.
+                                            It's exactly the reliability we were missing."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Owner, Australia</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Titanium Implants</h3>
-                                <p class="text-gray-600 mb-4">Biocompatible implants with exceptional durability.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-yellow-600">$599</span>
-                                    <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                        <i class="fas fa-cart-plus mr-2"></i> Order
-                                    </button>
-                                </div>
-                            </div>
+                            </article>
                         </div>
 
-                        <!-- Product 5 -->
-                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <div class="h-56 bg-gradient-to-r from-red-100 to-pink-100 flex items-center justify-center">
-                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                                    <i class="fas fa-teeth-open text-5xl text-red-600"></i>
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-red-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "They don't just deliver designs — they integrate into our process.
+                                            It honestly feels like they are part of our own lab team."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Dental Lab</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Dentures</h3>
-                                <p class="text-gray-600 mb-4">Comfortable and natural-looking complete and partial dentures.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-red-600">$799</span>
-                                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                        <i class="fas fa-cart-plus mr-2"></i> Order
-                                    </button>
-                                </div>
-                            </div>
+                            </article>
                         </div>
 
-                        <!-- Duplicates for seamless looping -->
-                        <!-- Product 1 (Duplicate) -->
-                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <div class="h-56 bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center">
-                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                                    <i class="fas fa-tooth text-5xl text-blue-600"></i>
+                        <!-- Duplicate testimonials for seamless looping -->
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-blue-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "Before working with them, we struggled with remakes and last-minute stress.
+                                            Now, every case arrives consistent and dependable — it truly feels like we added an in-house team without the overhead."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Owner, USA</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Premium Dental Crowns</h3>
-                                <p class="text-gray-600 mb-4">High-quality zirconia crowns with perfect fit and natural aesthetics.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-blue-600">$149</span>
-                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                        <i class="fas fa-cart-plus mr-2"></i> Order
-                                    </button>
-                                </div>
-                            </div>
+                            </article>
                         </div>
 
-                        <!-- Product 2 (Duplicate) -->
-                        <div class="carousel-item flex-shrink-0 w-80 bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                            <div class="h-56 bg-gradient-to-r from-green-100 to-teal-100 flex items-center justify-center">
-                                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                                    <i class="fas fa-teeth text-5xl text-green-600"></i>
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-green-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "Their precision and on-time delivery immediately reduced our chairside adjustments.
+                                            It has made a real difference in our daily efficiency."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Manager, Canada</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Dental Bridges</h3>
-                                <p class="text-gray-600 mb-4">Precision-crafted bridges for seamless tooth replacement.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-2xl font-bold text-green-600">$399</span>
-                                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                        <i class="fas fa-cart-plus mr-2"></i> Order
-                                    </button>
+                            </article>
+                        </div>
+
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-purple-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "Complex implant cases were always a headache. With this team, I finally have confidence
+                                            that every design will be accurate and reliable."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Owner, UK</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </article>
+                        </div>
+
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-yellow-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "The quality is steady, the communication is clear, and we never face surprises.
+                                            It's exactly the reliability we were missing."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Lab Owner, Australia</p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="gallery-slide min-w-[300px] sm:min-w-[400px] mx-2">
+                            <article class="bg-white shadow-lg rounded-xl p-6 h-full transition-transform duration-300 hover:scale-105">
+                                <div class="flex items-start gap-4">
+                                    <i class="fas fa-quote-left text-red-500 text-2xl mt-1"></i>
+                                    <div>
+                                        <p class="text-gray-700 italic">
+                                            "They don't just deliver designs — they integrate into our process.
+                                            It honestly feels like they are part of our own lab team."
+                                        </p>
+                                        <p class="mt-3 font-semibold text-gray-900">– Dental Lab</p>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
 
-                <!-- Navigation Dots -->
-                <div class="flex justify-center space-x-3 mt-8">
-                    <div class="w-3 h-3 bg-blue-300 rounded-full cursor-pointer"></div>
-                    <div class="w-3 h-3 bg-blue-600 rounded-full cursor-pointer"></div>
-                    <div class="w-3 h-3 bg-blue-300 rounded-full cursor-pointer"></div>
+                <!-- Dots indicator for mobile -->
+                <div class="flex justify-center mt-8 space-x-2 dots-container">
+                    <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
                 </div>
             </div>
 
             <style>
-                .carousel-track {
-                    display: flex;
-                    width: max-content;
-                    animation: scroll 30s linear infinite;
+                .testimonials-gallery {
+                    font-family: 'Segoe UI', system-ui, sans-serif;
                 }
 
-                .carousel-track:hover {
+                .gallery-track {
+                    animation: slide 50s linear infinite;
+                    width: max-content;
+                }
+
+                .gallery-container:hover .gallery-track {
                     animation-play-state: paused;
                 }
 
-                @keyframes scroll {
-                    0% {
-                        transform: translateX(0);
-                    }
-
-                    100% {
-                        transform: translateX(calc(-50% - 1.5rem));
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    .carousel-track {
-                        animation-duration: 40s;
-                    }
-                }
-            </style>
-        </section>
-
-        <!-- Font Awesome Kit (replace with your own) -->
-        <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
-
-
-
-        <!-- Case Studies / Testimonials -->
-        <section class="py-12 md:px-24" aria-labelledby="testimonials">
-            <div class="max-w-8xl mx-auto px-6">
-                <!-- SEO Heading -->
-                <h2 id="testimonials" class="text-3xl font-bold text-center mb-10">
-                    Case Studies & Testimonials
-                </h2>
-
-                <!-- Horizontal scrolling container -->
-                <div class="testimonial-container overflow-hidden relative">
-                    <div class="testimonial-scroller flex pb-6">
-                        <!-- ✅ Original testimonials -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
-                            <div class="flex items-start gap-4">
-                                <i class="fas fa-quote-left text-blue-500 text-2xl mt-1"></i>
-                                <div>
-                                    <p class="text-gray-700 italic">
-                                        "Before working with them, we struggled with remakes and last-minute stress.
-                                        Now, every case arrives consistent and dependable — it truly feels like we added an in-house team without the overhead."
-                                    </p>
-                                    <p class="mt-3 font-semibold text-gray-900">– Lab Owner, USA</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
-                            <div class="flex items-start gap-4">
-                                <i class="fas fa-quote-left text-green-500 text-2xl mt-1"></i>
-                                <div>
-                                    <p class="text-gray-700 italic">
-                                        "Their precision and on-time delivery immediately reduced our chairside adjustments.
-                                        It has made a real difference in our daily efficiency."
-                                    </p>
-                                    <p class="mt-3 font-semibold text-gray-900">– Lab Manager, Canada</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
-                            <div class="flex items-start gap-4">
-                                <i class="fas fa-quote-left text-purple-500 text-2xl mt-1"></i>
-                                <div>
-                                    <p class="text-gray-700 italic">
-                                        "Complex implant cases were always a headache. With this team, I finally have confidence
-                                        that every design will be accurate and reliable."
-                                    </p>
-                                    <p class="mt-3 font-semibold text-gray-900">– Lab Owner, UK</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
-                            <div class="flex items-start gap-4">
-                                <i class="fas fa-quote-left text-yellow-500 text-2xl mt-1"></i>
-                                <div>
-                                    <p class="text-gray-700 italic">
-                                        "The quality is steady, the communication is clear, and we never face surprises.
-                                        It's exactly the reliability we were missing."
-                                    </p>
-                                    <p class="mt-3 font-semibold text-gray-900">– Lab Owner, Australia</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
-                            <div class="flex items-start gap-4">
-                                <i class="fas fa-quote-left text-red-500 text-2xl mt-1"></i>
-                                <div>
-                                    <p class="text-gray-700 italic">
-                                        "They don't just deliver designs — they integrate into our process.
-                                        It honestly feels like they are part of our own lab team."
-                                    </p>
-                                    <p class="mt-3 font-semibold text-gray-900">– Dental Lab</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- ✅ Duplicate testimonials (for seamless loop) -->
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
-                            <div class="flex items-start gap-4">
-                                <i class="fas fa-quote-left text-blue-500 text-2xl mt-1"></i>
-                                <div>
-                                    <p class="text-gray-700 italic">
-                                        "Before working with them, we struggled with remakes and last-minute stress.
-                                        Now, every case arrives consistent and dependable — it truly feels like we added an in-house team without the overhead."
-                                    </p>
-                                    <p class="mt-3 font-semibold text-gray-900">– Lab Owner, USA</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="bg-white shadow-md rounded-xl p-6 mr-6 flex-shrink-0 w-[400px]">
-                            <div class="flex items-start gap-4">
-                                <i class="fas fa-quote-left text-green-500 text-2xl mt-1"></i>
-                                <div>
-                                    <p class="text-gray-700 italic">
-                                        "Their precision and on-time delivery immediately reduced our chairside adjustments.
-                                        It has made a real difference in our daily efficiency."
-                                    </p>
-                                    <p class="mt-3 font-semibold text-gray-900">– Lab Manager, Canada</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-
-            <style>
-                @keyframes scrollTestimonialsHorizontal {
+                @keyframes slide {
                     0% {
                         transform: translateX(0);
                     }
@@ -1449,17 +1733,135 @@
                     }
                 }
 
-                .testimonial-scroller {
-                    display: flex;
-                    width: max-content;
-                    animation: scrollTestimonialsHorizontal 40s linear infinite;
+                /* Mobile responsiveness */
+                @media (max-width: 640px) {
+                    .gallery-slide {
+                        min-width: 280px !important;
+                    }
+
+                    .gallery-track {
+                        animation-duration: 40s;
+                    }
+
+                    .dots-container {
+                        display: flex !important;
+                    }
                 }
 
-                /* Pause on hover */
-                .testimonial-container:hover .testimonial-scroller {
-                    animation-play-state: paused;
+                @media (min-width: 641px) and (max-width: 768px) {
+                    .gallery-slide {
+                        min-width: 350px !important;
+                    }
+
+                    .dots-container {
+                        display: none !important;
+                    }
+                }
+
+                @media (min-width: 769px) {
+                    .dots-container {
+                        display: none !important;
+                    }
+                }
+
+                /* Reduced motion for accessibility */
+                @media (prefers-reduced-motion: reduce) {
+                    .gallery-track {
+                        animation: none;
+                    }
+
+                    .nav-arrow {
+                        opacity: 1 !important;
+                    }
                 }
             </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const track = document.querySelector('.gallery-track');
+                    const slides = document.querySelectorAll('.gallery-slide');
+                    const dots = document.querySelectorAll('.dot');
+                    const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
+                    const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
+
+                    // Calculate total original slides (excluding duplicates)
+                    const originalSlides = slides.length / 2;
+                    let currentIndex = 0;
+                    let autoSlideInterval;
+
+                    // Function to update dots indicator
+                    function updateDots() {
+                        dots.forEach((dot, index) => {
+                            if (index === currentIndex) {
+                                dot.classList.add('bg-blue-600');
+                                dot.classList.remove('bg-blue-300');
+                            } else {
+                                dot.classList.remove('bg-blue-600');
+                                dot.classList.add('bg-blue-300');
+                            }
+                        });
+                    }
+
+                    // Start auto sliding
+                    function startAutoSlide() {
+                        autoSlideInterval = setInterval(() => {
+                            // The animation handles the sliding, we just update the dots
+                            currentIndex = (currentIndex + 1) % originalSlides;
+                            updateDots();
+                        }, 5000);
+                    }
+
+                    // Stop auto sliding
+                    function stopAutoSlide() {
+                        clearInterval(autoSlideInterval);
+                    }
+
+                    // Manual navigation
+                    nextBtn.addEventListener('click', () => {
+                        stopAutoSlide();
+                        currentIndex = (currentIndex + 1) % originalSlides;
+                        updateDots();
+                        startAutoSlide();
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        stopAutoSlide();
+                        currentIndex = (currentIndex - 1 + originalSlides) % originalSlides;
+                        updateDots();
+                        startAutoSlide();
+                    });
+
+                    // Dot navigation
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener('click', () => {
+                            stopAutoSlide();
+                            currentIndex = index;
+                            updateDots();
+                            startAutoSlide();
+                        });
+                    });
+
+                    // Pause auto slide on hover
+                    const galleryContainer = document.querySelector('.gallery-container');
+                    galleryContainer.addEventListener('mouseenter', stopAutoSlide);
+                    galleryContainer.addEventListener('mouseleave', startAutoSlide);
+
+                    // Initialize and start auto slide
+                    updateDots();
+                    startAutoSlide();
+
+                    // Handle reduced motion preference
+                    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                        stopAutoSlide();
+                        track.style.animation = 'none';
+
+                        // Make arrows always visible
+                        document.querySelectorAll('.nav-arrow').forEach(arrow => {
+                            arrow.style.opacity = '1';
+                        });
+                    }
+                });
+            </script>
         </section>
 
 
