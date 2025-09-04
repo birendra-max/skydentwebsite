@@ -65,9 +65,9 @@
                     <a href="https://skydentclouds.com/login.php" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center">
                         <i class="fas fa-sign-in-alt mr-2"></i> Portal Login
                     </a>
-                    <a href="#" class="text-gray-700 hover:text-blue-600">
+                    <!-- <a href="#" class="text-gray-700 hover:text-blue-600">
                         <i class="fab fa-paypal text-2xl"></i>
-                    </a>
+                    </a> -->
                     <a href="https://wa.me/+918810468697?text=Hello%20I%20want%20to%20know%20more" class="text-gray-700 hover:text-green-600">
                         <i class="fab fa-whatsapp text-2xl"></i>
                     </a>
@@ -97,14 +97,14 @@
                         </p>
 
                         <div class="flex flex-wrap gap-4 mt-10">
-                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg flex items-center">
-                                <span>Get Started Today</span>
+                            <a href="https://skydentclouds.com/login.php" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg flex items-center">
+                                <span>Login to Portal</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </a>
-                            <a href="#" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300 flex items-center">
-                                <span>Learn More</span>
+                            <a href="#contact" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300 flex items-center">
+                                <span>Create Account</span>
                             </a>
                         </div>
                     </div>
@@ -1742,7 +1742,7 @@
 
         <!-- Contact Us -->
 
-        <section class="py-16 px-4 md:px-8">
+        <section class="py-16 px-4 md:px-8" id="contact">
             <div class="max-w-8xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
                 <!-- Image Section -->
                 <div class="md:w-2/5 relative">
