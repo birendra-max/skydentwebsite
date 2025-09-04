@@ -25,6 +25,12 @@
     <meta name="twitter:title" content="Skydent | Dental Care for International Patients">
     <meta name="twitter:description" content="Affordable, high-quality dental implants, veneers, and cosmetic dentistry. Trusted by patients from across the globe.">
     <meta name="twitter:image" content="https://darkgoldenrod-rabbit-127353.hostingersite.com/images/twitter-global-smiles.jpg">
+
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
     <style>
         h1,
         h2,
@@ -41,162 +47,6 @@
             /* For body */
         }
     </style>
-
-    <style>
-        .crown-gallery {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        .gallery-track {
-            animation: slide 40s linear infinite;
-            width: max-content;
-        }
-
-        .gallery-container:hover .gallery-track {
-            animation-play-state: paused;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 640px) {
-            .gallery-slide {
-                min-width: 160px !important;
-                height: 160px !important;
-            }
-
-            .gallery-track {
-                animation-duration: 30s;
-            }
-
-            .dots-container {
-                display: flex !important;
-            }
-        }
-
-        @media (min-width: 641px) and (max-width: 768px) {
-            .gallery-slide {
-                min-width: 200px !important;
-                height: 200px !important;
-            }
-
-            .dots-container {
-                display: none !important;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .dots-container {
-                display: none !important;
-            }
-        }
-
-        /* Reduced motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            .gallery-track {
-                animation: none;
-            }
-
-            .nav-arrow {
-                opacity: 1 !important;
-            }
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.gallery-track');
-            const slides = document.querySelectorAll('.gallery-slide');
-            const dots = document.querySelectorAll('.dot');
-            const prevBtn = document.querySelector('.fa-chevron-left').parentElement;
-            const nextBtn = document.querySelector('.fa-chevron-right').parentElement;
-
-            // Calculate total original slides (excluding duplicates)
-            const originalSlides = slides.length / 2;
-            let currentIndex = 0;
-            let autoSlideInterval;
-
-            // Function to update dots indicator
-            function updateDots() {
-                dots.forEach((dot, index) => {
-                    if (index === currentIndex) {
-                        dot.classList.add('bg-blue-600');
-                        dot.classList.remove('bg-blue-300');
-                    } else {
-                        dot.classList.remove('bg-blue-600');
-                        dot.classList.add('bg-blue-300');
-                    }
-                });
-            }
-
-            // Start auto sliding
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(() => {
-                    // The animation handles the sliding, we just update the dots
-                    currentIndex = (currentIndex + 1) % originalSlides;
-                    updateDots();
-                }, 4000);
-            }
-
-            // Stop auto sliding
-            function stopAutoSlide() {
-                clearInterval(autoSlideInterval);
-            }
-
-            // Manual navigation
-            nextBtn.addEventListener('click', () => {
-                stopAutoSlide();
-                currentIndex = (currentIndex + 1) % originalSlides;
-                updateDots();
-                startAutoSlide();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                stopAutoSlide();
-                currentIndex = (currentIndex - 1 + originalSlides) % originalSlides;
-                updateDots();
-                startAutoSlide();
-            });
-
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    stopAutoSlide();
-                    currentIndex = index;
-                    updateDots();
-                    startAutoSlide();
-                });
-            });
-
-            // Pause auto slide on hover
-            const galleryContainer = document.querySelector('.gallery-container');
-            galleryContainer.addEventListener('mouseenter', stopAutoSlide);
-            galleryContainer.addEventListener('mouseleave', startAutoSlide);
-
-            // Initialize and start auto slide
-            updateDots();
-            startAutoSlide();
-
-            // Handle reduced motion preference
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                stopAutoSlide();
-                track.style.animation = 'none';
-
-                // Make arrows always visible
-                document.querySelectorAll('.nav-arrow').forEach(arrow => {
-                    arrow.style.opacity = '1';
-                });
-            }
-        });
-    </script>
 
 </head>
 
@@ -227,6 +77,7 @@
     </header>
 
     <main>
+        <!-- Hero section  -->
         <section class="bg-gradient-to-br from-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8">
             <div class="max-w-8xl mx-auto mt-16">
                 <!-- Main content with image -->
@@ -260,102 +111,95 @@
 
                     <!-- Image placeholder -->
                     <div class="lg:w-1/2 flex justify-center relative">
-                        <div class="w-full max-w-md h-80 bg-white rounded-2xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-white">
+                        <div class="w-full max-w-lg h-[40vh] flex items-center justify-center overflow-hidden">
                             <!-- Replace this div with your actual image -->
                             <div class="absolute inset-0 opacity-10"></div>
                             <div class="relative z-10 text-center p-6">
-                                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 text-blue-600 mb-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                                    </svg>
-                                </div>
-                                <p class="text-gray-600 font-medium">Dental Laboratory Imaging</p>
+                                <img src="img/Untitled design.png" alt="skydent team" class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Stats section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                    <!-- Stat 1 -->
-                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">99.9%</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">On-Time Delivery</h3>
-                        <p class="text-gray-600 text-sm">Always on schedule</p>
+            <!-- Stats section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Stat 1 -->
+                <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">99.9%</div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">On-Time Delivery</h3>
+                    <p class="text-gray-600 text-sm">Always on schedule</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Global Dental Partners</h3>
+                    <p class="text-gray-600 text-sm">USA, UK, Canada & more</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Dedicated Support</h3>
+                    <p class="text-gray-600 text-sm">Real people, not bots</p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">Precision</div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Results Guaranteed</h3>
+                    <p class="text-gray-600 text-sm">Exceed & 3Shape expertise</p>
+                </div>
+            </div>
+
+            <!-- Features section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Free Sample Design -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                    <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                        <span class="text-blue-700 text-xl">🔬</span>
                     </div>
-
-                    <!-- Stat 2 -->
-                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Global Dental Partners</h3>
-                        <p class="text-gray-600 text-sm">USA, UK, Canada & more</p>
-                    </div>
-
-                    <!-- Stat 3 -->
-                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">24/7</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Dedicated Support</h3>
-                        <p class="text-gray-600 text-sm">Real people, not bots</p>
-                    </div>
-
-                    <!-- Stat 4 -->
-                    <div class="text-center bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">Precision</div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Results Guaranteed</h3>
-                        <p class="text-gray-600 text-sm">Exceed & 3Shape expertise</p>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Try a Free Sample Design</h3>
+                        <p class="text-gray-600 text-sm">Experience our quality with a complimentary design sample.</p>
                     </div>
                 </div>
 
-                <!-- Features section -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    <!-- Free Sample Design -->
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
-                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
-                            <span class="text-blue-700 text-xl">🔬</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Try a Free Sample Design</h3>
-                            <p class="text-gray-600 text-sm">Experience our quality with a complimentary design sample.</p>
-                        </div>
+                <!-- WhatsApp Chat -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                    <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                        <span class="text-blue-700 text-xl">💬</span>
                     </div>
-
-                    <!-- WhatsApp Chat -->
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
-                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
-                            <span class="text-blue-700 text-xl">💬</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Chat with Our Team</h3>
-                            <p class="text-gray-600 text-sm">Available anytime for quick responses and support.</p>
-                        </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Chat with Our Team</h3>
+                        <p class="text-gray-600 text-sm">Available anytime for quick responses and support.</p>
                     </div>
+                </div>
 
-                    <!-- Schedule Meeting -->
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
-                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
-                            <span class="text-blue-700 text-xl">📅</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Schedule a Meeting</h3>
-                            <p class="text-gray-600 text-sm">Book a consultation with our dental lab specialists.</p>
-                        </div>
+                <!-- Schedule Meeting -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                    <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                        <span class="text-blue-700 text-xl">📅</span>
                     </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Schedule a Meeting</h3>
+                        <p class="text-gray-600 text-sm">Book a consultation with our dental lab specialists.</p>
+                    </div>
+                </div>
 
-                    <!-- Request Price List -->
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
-                        <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
-                            <span class="text-blue-700 text-xl">💰</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Request Price List</h3>
-                            <p class="text-gray-600 text-sm">Get our competitive pricing for dental lab services.</p>
-                        </div>
+                <!-- Request Price List -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-50 transition-all hover:shadow-md flex items-start h-full">
+                    <div class="bg-blue-100 p-3 rounded-xl mr-4 flex-shrink-0">
+                        <span class="text-blue-700 text-xl">💰</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Request Price List</h3>
+                        <p class="text-gray-600 text-sm">Get our competitive pricing for dental lab services.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-
 
         <!-- About Us -->
         <section class="py-20">
@@ -656,7 +500,7 @@
                         <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
                             <!-- Image with full height and width -->
                             <img
-                                src="img/Untitled design.png"
+                                src="img/DIGITAL DENTAL DESIGNERS (1).jpg"
                                 alt="Dental lab technician working on digital dental design process"
                                 class="w-full h-full object-cover rounded-xl">
                         </div>
@@ -1001,342 +845,373 @@
 
 
         <!-- Digital Dental Design Services -->
-        <section class="md:py-16">
-            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden">
-                <div class="max-w-7xl mx-auto">
-                    <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Crown & Bridge Designs</h2>
-                        <p class="text-lg text-gray-600">Precision-driven solutions for strength, aesthetics, and long-lasting performance</p>
+        <section class="py-16 bg-gray-900">
+            <div class="max-w-8xl mx-auto px-16 sm:px-6 lg:px-8">
+                <!-- Crown & Bridge Designs -->
+                <div class="flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                    <!-- Left Content -->
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Crown & Bridge Designs</h2>
+                        <p class="text-lg text-gray-300 mb-6">Precision-driven solutions for strength, aesthetics, and long-lasting performance. Our crown and bridge work combines expert craftsmanship with advanced digital technology.</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Custom-designed for perfect fit and function</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Multiple material options available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Natural-looking aesthetics</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="gallery-container relative">
-                        <!-- Navigation arrows (only show on hover) -->
-                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-left text-blue-600"></i>
-                        </button>
-                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-right text-blue-600"></i>
-                        </button>
-
-                        <!-- Gallery Track -->
-                        <div class="gallery-track flex">
-                            <!-- Original Images -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/4 Units Anterior.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6-0 Units crown.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6 Units Anterior.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6 Units crown.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6-1 Units Anterior.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6-1 Units crown.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                    <!-- Right Slider -->
+                    <div class="md:w-1/2 relative group">
+                        <div class="crown-slider swiper-container overflow-hidden rounded-xl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/4 Units Anterior.png" alt="4 Units Anterior Crown Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/6-0 Units crown.png" alt="6-0 Units Crown Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/6 Units Anterior.png" alt="6 Units Anterior Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/6 Units crown.png" alt="6 Units Crown Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/6-1 Units Anterior.png" alt="6-1 Units Anterior Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/6-1 Units crown.png" alt="6-1 Units Crown Design" class="w-full h-72 object-cover">
+                                </div>
                             </div>
 
+                            <div class="swiper-button-next !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
+                            <div class="swiper-button-prev !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
 
-                            <!-- Duplicate images for seamless looping -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/4 Units Anterior.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Wax-Ups & Temporaries -->
+                <div class="flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                    <!-- Left Slider -->
+                    <div class="md:w-1/2 relative group mb-10 md:mb-0 md:pr-10">
+                        <div class="digital-slider swiper-container overflow-hidden rounded-xl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/DW.png" alt="Digital Wax-Up Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/DW1.png" alt="Digital Wax-Up Example" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/DW2.png" alt="Digital Wax-Up Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/DW MO.png" alt="Digital Wax-Up MO" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/DW MO+C.png" alt="Digital Wax-Up MO+C" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/DW MO+C2.png" alt="Digital Wax-Up MO+C2" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/TEMP.png" alt="Temporary Restoration" class="w-full h-72 object-cover">
+                                </div>
                             </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6-0 Units crown.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6 Units Anterior.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6 Units crown.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6-1 Units Anterior.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/6-1 Units crown.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/skydent logo.png" alt="Skydent Dental Solutions" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
+
+                            <div class="swiper-button-next !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
+                            <div class="swiper-button-prev !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
+
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
 
-                    <!-- Dots indicator for mobile -->
-                    <div class="flex justify-center mt-8 space-x-2 dots-container">
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    <!-- Right Content -->
+                    <div class="md:w-1/2 md:pl-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Digital Wax-Ups & Temporaries</h2>
+                        <p class="text-lg text-gray-300 mb-6">Accurate previews and reliable temporaries for confident treatment planning. Our digital wax-ups allow you to visualize the final result before treatment begins.</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Precise digital planning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Patient approval before production</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>High-quality temporary restorations</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
-                <div class="max-w-7xl mx-auto">
-                    <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Digital Wax-Ups & Temporaries</h2>
-                        <p class="text-lg text-gray-600">Accurate previews and reliable temporaries for confident treatment planning</p>
+                <!-- Full Arch & All-on-X Restorations -->
+                <div class="flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                    <!-- Left Content -->
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Full Arch & All-on-X Restorations</h2>
+                        <p class="text-lg text-gray-300 mb-6">Comprehensive solutions for stability, function, and natural esthetics. Our full arch restorations provide patients with a permanent, comfortable solution.</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Full-arch implant-supported prosthetics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Fixed and removable options</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Enhanced chewing function and comfort</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="gallery-container relative">
-                        <!-- Navigation arrows (only show on hover) -->
-                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-left text-blue-600"></i>
-                        </button>
-                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-right text-blue-600"></i>
-                        </button>
-
-                        <!-- Gallery Track -->
-                        <div class="gallery-track flex">
-                            <!-- Original Images -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW MO.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW MO+C.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW MO+C2.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/TEMP.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                    <!-- Right Slider -->
+                    <div class="md:w-1/2 relative group">
+                        <div class="fullarch-slider swiper-container overflow-hidden rounded-xl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Gingiva Crown.png" alt="Gingiva Crown Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Gingiva Crown1.png" alt="Gingiva Crown Example" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Gingiva Crown1-2.png" alt="Gingiva Crown Design" class="w-full h-72 object-cover">
+                                </div>
                             </div>
 
+                            <div class="swiper-button-next !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
+                            <div class="swiper-button-prev !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
 
-                            <!-- Duplicate images for seamless looping -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Implant Restorations -->
+                <div class="flex flex-col md:flex-row items-center mb-16 md:mb-24">
+                    <!-- Left Slider -->
+                    <div class="md:w-1/2 relative group mb-10 md:mb-0 md:pr-10">
+                        <div class="implant-slider swiper-container overflow-hidden rounded-xl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Custom Abutment.png" alt="Custom Abutment Design" class="w-full h-72 object-cover">
+                                </div>
                             </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW MO.png" alt="6 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW MO+C.png" alt="6-1 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/DW MO+C2.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/TEMP.png" alt="6-1 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
+
+                            <div class="swiper-button-next !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
+                            <div class="swiper-button-prev !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
+
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
 
-                    <!-- Dots indicator for mobile -->
-                    <div class="flex justify-center mt-8 space-x-2 dots-container">
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
+                    <!-- Right Content -->
+                    <div class="md:w-1/2 md:pl-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Implant Restorations</h2>
+                        <p class="text-lg text-gray-300 mb-6">Comprehensive solutions for stability, function, and natural esthetics. Our implant restorations are designed to seamlessly integrate with your natural teeth.</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Custom abutments for perfect fit</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Various connection types available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Biocompatible materials</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
-                <div class="max-w-7xl mx-auto">
-                    <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Full Arch & All-on-X Restorations</h2>
-                        <p class="text-lg text-gray-600">Comprehensive solutions for stability, function, and natural esthetics</p>
+                <!-- Removable Prosthetics -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- Left Content -->
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Removable Prosthetics</h2>
+                        <p class="text-lg text-gray-300 mb-6">Comprehensive solutions for stability, function, and natural esthetics. Our removable prosthetics are custom-designed for optimal comfort and function.</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Partial and full dentures</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Custom trays for perfect impressions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-400 mr-2 mt-1">•</span>
+                                <span>Precision attachments for enhanced retention</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="gallery-container relative">
-                        <!-- Navigation arrows (only show on hover) -->
-                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-left text-blue-600"></i>
-                        </button>
-                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-right text-blue-600"></i>
-                        </button>
+                    <!-- Right Slider -->
+                    <div class="md:w-1/2 relative group">
+                        <div class="removable-slider swiper-container overflow-hidden rounded-xl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="img/Customized Tray.png" alt="Customized Tray" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/Customized Tray1.png" alt="Customized Tray Example" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/NG7.png" alt="NG7 Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/NG_3.png" alt="NG3 Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/RPD.png" alt="RPD Design" class="w-full h-72 object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="img/RPD-2.png" alt="RPD Design Variation" class="w-full h-72 object-cover">
+                                </div>
+                            </div>
 
-                        <!-- Gallery Track -->
-                        <div class="gallery-track flex">
-                            <!-- Original Images -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Gingiva Crown.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Gingiva Crown1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Gingiva Crown1-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
+                            <div class="swiper-button-next !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
+                            <div class="swiper-button-prev !text-white !opacity-70 group-hover:!opacity-100 transition-opacity duration-300"></div>
 
-
-                            <!-- Duplicate images for seamless looping -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Gingiva Crown.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Gingiva Crown1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Gingiva Crown1-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
-
-                    <!-- Dots indicator for mobile -->
-                    <div class="flex justify-center mt-8 space-x-2 dots-container">
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                    </div>
                 </div>
             </div>
-
-            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
-                <div class="max-w-7xl mx-auto">
-                    <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Implant Restorations</h2>
-                        <p class="text-lg text-gray-600">Comprehensive solutions for stability, function, and natural esthetics</p>
-                    </div>
-
-                    <div class="gallery-container relative">
-                        <!-- Navigation arrows (only show on hover) -->
-                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-left text-blue-600"></i>
-                        </button>
-                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-right text-blue-600"></i>
-                        </button>
-
-                        <!-- Gallery Track -->
-                        <div class="gallery-track flex">
-                            <!-- Original Images -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Custom Abutment.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-
-
-                            <!-- Duplicate images for seamless looping -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Custom Abutment.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Dots indicator for mobile -->
-                    <div class="flex justify-center mt-8 space-x-2 dots-container">
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="crown-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden my-8">
-                <div class="max-w-7xl mx-auto">
-                    <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Removable Prosthetics</h2>
-                        <p class="text-lg text-gray-600">Comprehensive solutions for stability, function, and natural esthetics</p>
-                    </div>
-
-                    <div class="gallery-container relative">
-                        <!-- Navigation arrows (only show on hover) -->
-                        <button class="nav-arrow absolute left-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-left text-blue-600"></i>
-                        </button>
-                        <button class="nav-arrow absolute right-2 top-1/2 z-10 transform -translate-y-1/2 bg-white/80 w-10 h-10 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-all opacity-0 md:group-hover:opacity-100">
-                            <i class="fas fa-chevron-right text-blue-600"></i>
-                        </button>
-
-                        <!-- Gallery Track -->
-                        <div class="gallery-track flex">
-                            <!-- Original Images -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Customized Tray.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Customized Tray1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/NG7.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/NG_3.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/RPD.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/RPD-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-
-
-                            <!-- Duplicate images for seamless looping -->
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Customized Tray.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/Customized Tray1.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/NG7.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/NG_3.png" alt="4 Units Anterior Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/RPD.png" alt="6-0 Units Crown Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                            <div class="gallery-slide min-w-[180px] sm:min-w-[220px] md:min-w-[250px] h-[180px] sm:h-[220px] mx-2">
-                                <img src="img/RPD-2.png" alt="6 Units Anterior Design" class="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dots indicator for mobile -->
-                    <div class="flex justify-center mt-8 space-x-2 dots-container">
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot active"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-blue-300 dot"></div>
-                    </div>
-                </div>
-            </div>
-
         </section>
+
+
+        <style>
+            .swiper-container {
+                width: 100%;
+                height: 100%;
+            }
+
+            .swiper-slide {
+                text-align: center;
+                background: #1f2937;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .swiper-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: #ffffff;
+                background: rgba(0, 0, 0, 0.5);
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .swiper-pagination-bullet {
+                background: #ffffff;
+                opacity: 0.6;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: #3b82f6;
+                opacity: 1;
+            }
+
+            @media (max-width: 768px) {
+
+                .swiper-button-next,
+                .swiper-button-prev {
+                    display: none;
+                }
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize all sliders
+                const sliders = [{
+                        selector: '.crown-slider',
+                        name: 'crown'
+                    },
+                    {
+                        selector: '.digital-slider',
+                        name: 'digital'
+                    },
+                    {
+                        selector: '.fullarch-slider',
+                        name: 'fullarch'
+                    },
+                    {
+                        selector: '.implant-slider',
+                        name: 'implant'
+                    },
+                    {
+                        selector: '.removable-slider',
+                        name: 'removable'
+                    }
+                ];
+
+                sliders.forEach(slider => {
+                    new Swiper(slider.selector, {
+                        loop: true,
+                        spaceBetween: 0,
+                        centeredSlides: true,
+                        navigation: {
+                            nextEl: `.${slider.name}-slider .swiper-button-next`,
+                            prevEl: `.${slider.name}-slider .swiper-button-prev`,
+                        },
+                        pagination: {
+                            el: `.${slider.name}-slider .swiper-pagination`,
+                            clickable: true,
+                        },
+                        autoplay: {
+                            delay: 4000,
+                            disableOnInteraction: false,
+                        },
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 1,
+                            },
+                            768: {
+                                slidesPerView: 1,
+                            },
+                            1024: {
+                                slidesPerView: 1,
+                            },
+                        }
+                    });
+                });
+            });
+        </script>
 
 
         <!-- Trust & Credentials -->
@@ -1527,11 +1402,11 @@
         </section>
 
         <!-- Case Studies / Testimonials -->
-        <section class="testimonials-gallery bg-gradient-to-b from-blue-50 to-indigo-50 py-16 px-4 overflow-hidden">
+        <section class="testimonials-gallery py-16 px-4 overflow-hidden">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Case Studies & Testimonials</h2>
-                    <p class="text-lg text-gray-600">Hear what our partners have to say about our services</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Case Studies & Testimonials</h2>
+                    <p class="text-lg text-white">Hear what our partners have to say about our services</p>
                 </div>
 
                 <div class="gallery-container relative">
@@ -1865,78 +1740,81 @@
         </section>
 
 
+        <!-- Contact Us -->
 
-        <section class="py-16 md:px-24">
+        <section class="py-16 px-4 md:px-8">
             <div class="max-w-8xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
                 <!-- Image Section -->
-                <div class="md:w-2/4 bg-gradient-to-br from-blue-900 to-indigo-800 text-white p-10 flex flex-col justify-center">
-                    <div class="text-center md:text-left mb-8">
+                <div class="md:w-2/5 relative">
+                    <img
+                        src="img/Untitled design.jpg"
+                        alt="Dental laboratory with modern equipment"
+                        class="object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex flex-col justify-end p-8 text-white">
                         <h3 class="text-2xl font-bold mb-4">Your Digital Dental Design Partner</h3>
-                        <p class="text-blue-100">Precision, reliability, and seamless integration for dental labs worldwide</p>
-                    </div>
+                        <p class="text-blue-100 mb-6">Precision, reliability, and seamless integration for dental labs worldwide</p>
 
-                    <div class="space-y-6 mb-8">
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-3 rounded-full mr-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                                </svg>
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-700 p-2 rounded-full mr-3 flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Precision Design</h4>
+                                    <p class="text-sm text-blue-200 mt-1">99.7% accuracy rate on all cases</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-semibold">Precision Design</h4>
-                                <p class="text-sm text-blue-200 mt-1">99.7% accuracy rate on all cases</p>
+
+                            <div class="flex items-start">
+                                <div class="bg-blue-700 p-2 rounded-full mr-3 flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Fast Turnaround</h4>
+                                    <p class="text-sm text-blue-200 mt-1">30 minutes to 12 hours standard delivery</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-blue-700 p-2 rounded-full mr-3 flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Dedicated Support</h4>
+                                    <p class="text-sm text-blue-200 mt-1">Personal account manager for each client</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-3 rounded-full mr-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <div class="border-t border-blue-700 pt-4">
+                            <p class="text-sm text-blue-200 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Fast Turnaround</h4>
-                                <p class="text-sm text-blue-200 mt-1">30 minutes to 12 hours standard delivery</p>
-                            </div>
-
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-3 rounded-full mr-4">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                skydent@skydentdesigns.com
+                            </p>
+                            <p class="text-sm text-blue-200 mt-2 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                                 </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Dedicated Support</h4>
-                                <p class="text-sm text-blue-200 mt-1">Personal account manager for each client</p>
-                            </div>
+                                +91 88104 68697
+                            </p>
                         </div>
-                    </div>
-
-                    <div class="border-t border-blue-700 pt-6 mt-6">
-                        <p class="text-sm text-blue-200 flex items-center">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            skydent@skydentdesigns.com
-                        </p>
-                        <p class="text-sm text-blue-200 mt-2 flex items-center">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-
-                            +91 88104 68697
-                        </p>
                     </div>
                 </div>
 
                 <!-- Form Section -->
-                <div class="md:w-3/5 p-8 md:p-12">
+                <div class="md:w-3/5 p-8 md:p-10">
                     <div class="mb-8">
-                        <h2 class="text-3xl font-bold text-blue-900 mb-2">Contact Us</h2>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Contact Us</h2>
                         <p class="text-blue-600 font-medium mb-4">📩 Your Reliable Partner for Digital Dental Design</p>
-                        <p class="text-gray-700">
+                        <p class="text-gray-600">
                             We believe every lab deserves precision, speed, and support like an in-house team. Share your details below and let's start building a partnership that saves your time, reduces remakes, and boosts client trust.
                         </p>
                     </div>
@@ -1992,7 +1870,7 @@
                             </p>
                         </div>
 
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-700 to-indigo-700 text-white font-semibold py-4 rounded-xl shadow-md hover:from-blue-800 hover:to-indigo-800 transition transform hover:-translate-y-1">
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-4 rounded-xl shadow-md hover:from-blue-700 hover:to-indigo-700 transition transform hover:-translate-y-0.5">
                             Send Request
                         </button>
                     </form>
