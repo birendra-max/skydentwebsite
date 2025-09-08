@@ -1771,11 +1771,11 @@
                             <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Service Required *</label>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                                 <label class="flex items-center bg-gray-50 p-2 md:p-3 lg:p-4 rounded-lg border cursor-pointer hover:bg-blue-50 text-base md:text-lg">
-                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500" required>
+                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500" value="3Shape Design" required>
                                     <span class="ml-2 text-gray-700">3Shape Design</span>
                                 </label>
                                 <label class="flex items-center bg-gray-50 p-2 md:p-3 lg:p-4 rounded-lg border cursor-pointer hover:bg-blue-50 text-base md:text-lg">
-                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500" required>
+                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500" value="Exocad Design" required>
                                     <span class="ml-2 text-gray-700">Exocad Design</span>
                                 </label>
                             </div>
@@ -1783,7 +1783,7 @@
 
                         <div>
                             <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Select a Option *</label>
-                            <select name="" id="services" class="w-full text-black border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" value="" placeholder="Select a Option">
+                            <select name="services_r" id="services" class="w-full text-black border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" value="" placeholder="Select a Option">
                                 <option disabled selected value="">Select</option>
                                 <option value="Get a Quote">Get a Quote</option>
                                 <option value="Schedule a Meeting">Schedule a Meeting</option>
