@@ -46,6 +46,71 @@
             font-family: 'Roboto', sans-serif;
             /* For body */
         }
+
+        .dental-slider-container {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide:hover {
+            transform: scale(1.02);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 48px;
+            height: 48px;
+            color: #2563eb;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #2563eb;
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none;
+            }
+        }
     </style>
 
 </head>
@@ -62,7 +127,7 @@
 
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-3 flex-wrap">
-                    <a href="https://skydentclouds.com/login.php" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center text-lg sm:text-base">
+                    <a href="https://skydentclouds.com/login.php" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center md:text-lg text-base">
                         <i class="fas fa-sign-in-alt mr-2"></i> Portal Login
                     </a>
                     <a href="https://wa.me/+918810468697?text=Hello%20I%20want%20to%20know%20more" class="text-gray-700 hover:text-green-600 text-2xl">
@@ -77,12 +142,12 @@
 
     <main class="py-16">
         <!-- Hero section  -->
-        <section class="bg-gradient-to-br from-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8 ">
+        <section class="bg-gradient-to-br from-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8">
             <div class="max-w-8xl mx-auto">
                 <!-- Main content with image -->
                 <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 mb-20">
                     <!-- Text content -->
-                    <div class="lg:w-1/2 w-full text-center lg:text-left">
+                    <div class="lg:w-1/2 w-full text-center lg:text-left md:px-16">
                         <div class="mb-3">
                             <span class="inline-block bg-blue-100 text-blue-800 text-lg font-semibold px-4 py-1 rounded-full">
                                 DENTAL LAB EXCELLENCE
@@ -109,46 +174,97 @@
                         </div>
                     </div>
 
-                    <!-- Image content -->
-                    <div class="lg:w-1/2 w-full flex justify-center relative max-h-[400px]">
-                        <div class="w-full max-w-md h-auto flex items-center justify-center">
-                            <img src="img/Untitled design.png" alt="Skydent team" class="w-full h-auto object-cover">
+                    <!-- Enhanced Image Slider -->
+                    <div class="lg:w-1/2 w-full relative group mb-10 lg:mb-0 lg:pr-10 h-96 lg:h-[28rem]">
+                        <div class="swiper dental-slider-container h-full rounded-2xl overflow-hidden shadow-xl">
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1 -->
+                                <div class="swiper-slide bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center p-6">
+                                    <div class="text-center">
+                                        <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Precision Digital Designs</h3>
+                                        <p class="text-gray-600">Expertly crafted digital wax-ups with attention to detail</p>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="swiper-slide">
+                                    <div class="h-full w-full relative">
+                                        <img src="img/DW.png" alt="Digital Wax-Up Design" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                                            <h3 class="text-lg font-semibold">Digital Wax-Up</h3>
+                                            <p class="text-sm">Precision design for perfect restorations</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 3 -->
+                                <div class="swiper-slide">
+                                    <div class="h-full w-full relative">
+                                        <img src="img/DW1.png" alt="Digital Wax-Up Example" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                                            <h3 class="text-lg font-semibold">Detailed Design</h3>
+                                            <p class="text-sm">Meticulous attention to anatomical details</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Additional slides would follow the same pattern -->
+                            </div>
+
+                            <!-- Navigation buttons -->
+                            <div class="swiper-button-next bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full shadow-md transition-all duration-300"></div>
+                            <div class="swiper-button-prev bg-white/80 hover:bg-white text-blue-600 p-3 rounded-full shadow-md transition-all duration-300"></div>
+
+                            <!-- Pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- Floating label -->
+                        <div class="absolute -top-4 -right-4 bg-blue-600 text-white py-2 px-4 rounded-lg shadow-lg z-10">
+                            <span class="text-sm font-semibold">Our Work</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Stats section -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition">
+                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1">
                         <div class="text-4xl font-bold text-blue-600 mb-1">99.9%</div>
                         <h3 class="text-base font-semibold text-gray-800">On-Time Delivery</h3>
                         <p class="text-lg text-gray-600">Always on schedule</p>
                     </div>
 
-                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition">
+                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1">
                         <div class="text-4xl font-bold text-blue-600 mb-1">500+</div>
                         <h3 class="text-base font-semibold text-gray-800">Global Dental Partners</h3>
                         <p class="text-lg text-gray-600">USA, UK, Canada & more</p>
                     </div>
 
-                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition">
+                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1">
                         <div class="text-4xl font-bold text-blue-600 mb-1">24/7</div>
                         <h3 class="text-base font-semibold text-gray-800">Dedicated Support</h3>
                         <p class="text-lg text-gray-600">Real people, not bots</p>
                     </div>
 
-                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition">
+                    <div class="text-center bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1">
                         <div class="text-2xl font-bold text-blue-600 mb-1">Precision</div>
                         <h3 class="text-base font-semibold text-gray-800">Results Guaranteed</h3>
                         <p class="text-lg text-gray-600">3Shape expertise</p>
                     </div>
                 </div>
 
-                <!-- Features section with Font Awesome icons -->
+                <!-- Features section -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition flex items-start">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1 flex items-start">
                         <div class="bg-blue-100 p-3 rounded-xl mr-4 text-blue-700 text-xl flex items-center justify-center">
-                            <i class="fas fa-vial"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-semibold text-gray-800 mb-1">Try a Free Sample Design</h4>
@@ -156,9 +272,11 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition flex items-start">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1 flex items-start">
                         <div class="bg-blue-100 p-3 rounded-xl mr-4 text-blue-700 text-xl flex items-center justify-center">
-                            <i class="fas fa-comments"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-semibold text-gray-800 mb-1">Chat with Our Team</h4>
@@ -166,9 +284,11 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition flex items-start">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1 flex items-start">
                         <div class="bg-blue-100 p-3 rounded-xl mr-4 text-blue-700 text-xl flex items-center justify-center">
-                            <i class="fas fa-calendar-alt"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-semibold text-gray-800 mb-1">Schedule a Meeting</h4>
@@ -176,9 +296,11 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition flex items-start">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 hover:shadow-md transition transform hover:-translate-y-1 flex items-start">
                         <div class="bg-blue-100 p-3 rounded-xl mr-4 text-blue-700 text-xl flex items-center justify-center">
-                            <i class="fas fa-dollar-sign"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </div>
                         <div>
                             <h4 class="text-lg font-semibold text-gray-800 mb-1">Request Price List</h4>
@@ -187,6 +309,30 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Initialize Swiper -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const swiper = new Swiper('.dental-slider-container', {
+                        loop: true,
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        },
+                        speed: 800,
+                        effect: 'slide',
+                        grabCursor: true,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                    });
+                });
+            </script>
         </section>
 
         <!-- About Us -->
