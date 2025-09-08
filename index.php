@@ -127,11 +127,11 @@
 
                 <!-- Action Buttons -->
                 <div class="flex items-center gap-3 flex-wrap">
-                    <a href="https://skydentclouds.com/login.php" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center md:text-lg text-base">
+                    <a href="https://skydentclouds.com/login.php" class="whatsapp-float-updown bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center md:text-lg text-base">
                         <i class="fas fa-sign-in-alt mr-2"></i> Portal Login
                     </a>
                     <a href="https://wa.me/+918810468697?text=Hello%20I%20want%20to%20know%20more" class="text-gray-700 hover:text-green-600 text-2xl">
-                        <i class="fab fa-whatsapp text-3xl"></i>
+                        <i class="fab fa-whatsapp text-3xl "></i>
                     </a>
                 </div>
 
@@ -162,13 +162,13 @@
                         </p>
 
                         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                            <a href="https://skydentclouds.com/login.php" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg flex items-center">
+                            <a href="https://skydentclouds.com/login.php" class="whatsapp-float-updown bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg flex items-center">
                                 <span>Login to Portal</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </a>
-                            <a href="#contact" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+                            <a href="#contact" class=" border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
                                 Create Account
                             </a>
                         </div>
@@ -368,7 +368,7 @@
                         </h2>
 
                         <p class="text-lg  mb-6 leading-relaxed">
-                            We are four dedicated partners who personally oversee each shift, ensuring consistent quality and attention to detail in every case. Unlike large outsourcing companies, we maintain hands-on involvement with training, workflow, and quality control.
+                            We are four dedicated partners who personally oversee each shift, ensuring consistent quality and attention to detail in every case. Unlike large.whatsapp-float-updown outsourcing companies, we maintain hands-on involvement with training, workflow, and quality control.
                         </p>
 
                         <p class="text-lg mb-8 leading-relaxed">
@@ -965,7 +965,7 @@
                 <!-- CTA section -->
                 <div class="text-center mt-16">
                     <h3 class="text-xl font-semibold text-green-200 mb-4">Ready to experience our seamless workflow?</h3>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
+                    <button class="whatsapp-float-leftright bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md hover:shadow-lg">
                         Start Your First Case
                     </button>
                 </div>
@@ -1790,7 +1790,7 @@
                             <p class="text-blue-700 text-sm md:text-base">Once submitted, our team will review your requirements and connect with you within a few hours.</p>
                         </div>
 
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-2 md:py-3 lg:py-4 rounded-xl shadow-md hover:from-blue-700 hover:to-indigo-700 transition transform hover:-translate-y-0.5 text-base md:text-lg">
+                        <button type="submit" class="w-44 whatsapp-float-updown bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-2 md:py-3 lg:py-4 rounded-xl shadow-md hover:from-blue-700 hover:to-indigo-700 transition transform hover:-translate-y-0.5 text-base md:text-lg">
                             Send Request
                         </button>
                     </form>
@@ -1831,13 +1831,13 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4 text-black">Connect With Us</h3>
                     <div class="flex space-x-4 text-black">
-                        <a href="#" class="text-2xl text-black hover:text-blue-700">
+                        <a href="https://www.facebook.com/profile.php?id=100089996433482" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="text-2xl text-black hover:text-blue-700">
+                        <a href="https://www.instagram.com/skydentdesigns/" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-2xl text-black hover:text-blue-700">
+                        <a href="https://www.linkedin.com/services/page/40195933a4a8221979/" class="text-2xl text-black hover:text-blue-700">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -1855,7 +1855,7 @@
             </div>
         </div>
     </footer>
-
+    <?php include('flotingwp.php'); ?>
 </body>
 
 </html>
