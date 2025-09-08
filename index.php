@@ -879,10 +879,6 @@
 
         <!-- Our Process & Workflow -->
         <section class="md:py-16 py-8 md:px-24">
-            <!-- Decorative elements -->
-            <div class="absolute top-10 left-5 w-72 h-full bg-blue-100/30 rounded-full blur-xl"></div>
-            <div class="absolute bottom-10 right-5 w-96 h-96 bg-teal-100/30 rounded-full blur-xl"></div>
-
             <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <!-- Section header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
