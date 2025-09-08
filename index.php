@@ -31,6 +31,9 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
+    <!-- Jquery -->
+    <script src="js/Jquery.js"></script>
+
     <style>
         h1,
         h2,
@@ -1741,26 +1744,26 @@
                         </p>
                     </div>
 
-                    <form class="space-y-4 md:space-y-5 lg:space-y-6">
+                    <form class="space-y-4 md:space-y-5 lg:space-y-6" action="getCdata.php" method="post">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                             <div>
                                 <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Full Name *</label>
-                                <input type="text" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" placeholder="John Smith">
+                                <input type="text" name="full_nam" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="Skydent Design" required>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Lab Name *</label>
-                                <input type="text" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" placeholder="Skydent Dental Designs">
+                                <input type="text" name="lab_nam" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="Skydent Dental Designs" required>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                             <div>
                                 <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Email Address *</label>
-                                <input type="email" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" placeholder="john@example.com">
+                                <input type="email" name="e_ml" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="skydent@skydentdesigns.com" required>
                             </div>
                             <div>
                                 <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Phone Number</label>
-                                <input type="tel" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" placeholder="(123) 456-7890">
+                                <input type="tel" name="pho_n" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="+91 88104 68697" required>
                             </div>
                         </div>
 
@@ -1768,19 +1771,30 @@
                             <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Service Required *</label>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                                 <label class="flex items-center bg-gray-50 p-2 md:p-3 lg:p-4 rounded-lg border cursor-pointer hover:bg-blue-50 text-base md:text-lg">
-                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500" required>
                                     <span class="ml-2 text-gray-700">3Shape Design</span>
                                 </label>
                                 <label class="flex items-center bg-gray-50 p-2 md:p-3 lg:p-4 rounded-lg border cursor-pointer hover:bg-blue-50 text-base md:text-lg">
-                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                    <input type="radio" name="service" class="h-4 w-4 text-blue-600 focus:ring-blue-500" required>
                                     <span class="ml-2 text-gray-700">Exocad Design</span>
                                 </label>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Notes / Instructions</label>
-                            <textarea rows="3" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" placeholder="Tell us about your specific requirements..."></textarea>
+                            <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Select a Option *</label>
+                            <select name="services" id="services" class="w-full text-black border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" value="" placeholder="Select a Option">
+                                <option disabled selected value="">Select</option>
+                                <option value="Get a Quote">Get a Quote</option>
+                                <option value="Schedule a Meeting">Schedule a Meeting</option>
+                                <option value="Try a Free Sample Design">Try a Free Sample Design</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div id="message" class="hidden">
+                            <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Message</label>
+                            <textarea rows="3" name="message" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="Tell us about your specific requirements..."></textarea>
                         </div>
 
                         <div class="flex items-start bg-blue-50 p-3 md:p-4 rounded-lg text-base md:text-lg">
@@ -1857,5 +1871,17 @@
     </footer>
     <?php include('flotingwp.php'); ?>
 </body>
+<script>
+    $(document).ready(function() {
+        $('#services').change(function() {
+            if ($(this).val() == 'Other') {
+                $('#message').show();
+            }
+            else{
+                $('#message').hide(); 
+            }
+        })
+    })
+</script>
 
 </html>
