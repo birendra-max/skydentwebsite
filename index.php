@@ -1783,7 +1783,7 @@
 
                         <div>
                             <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Select a Option *</label>
-                            <select name="services" id="services" class="w-full text-black border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" value="" placeholder="Select a Option">
+                            <select name="" id="services" class="w-full text-black border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" value="" placeholder="Select a Option">
                                 <option disabled selected value="">Select</option>
                                 <option value="Get a Quote">Get a Quote</option>
                                 <option value="Schedule a Meeting">Schedule a Meeting</option>
