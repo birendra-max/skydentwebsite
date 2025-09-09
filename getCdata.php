@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     // Recipients
                     $mail->setFrom('orders.designs1@gmail.com', 'Dental Designs');
-                    $mail->addAddress('birendrapradhan112@gmail.com', 'Birendra kumar Pradhan');
+                    $mail->addAddress('skydent@skydentdesigns.com', 'Bravodent Design');
 
                     // Content
                     $mail->isHTML(true);                                        // Set email format to HTML
