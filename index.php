@@ -1598,24 +1598,27 @@
         </script>
 
         <!-- Contact Us -->
-        <section class="py-8 px-4 md:px-8" id="contact">
-            <div class="max-w-8xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
-                <!-- Image Section - Top on mobile, Left on desktop -->
-                <div class="w-full md:w-2/5 relative h-64 md:h-auto order-1 md:order-1">
-                    <img
-                        src="img/Untitled design.jpg"
-                        alt="Dental laboratory with modern equipment"
-                        class="object-cover w-full h-full">
+        <section class="py-8 px-4 md:px-24 " id="contact">
+            <div class="max-w-8xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col md:flex-row ">
+                <!-- Left Content Section with Image and Text -->
+                <div class="w-full md:w-2/5 flex flex-col">
+                    <!-- Image Section -->
+                    <div class="flex-1 relative h-64 md:h-auto">
+                        <img
+                            src="img/Untitled design.jpg"
+                            alt="Dental laboratory with modern equipment"
+                            class="object-cover w-full h-full">
+                    </div>
 
-                    <!-- Overlay - Hidden on mobile, shown on desktop -->
-                    <div class="hidden md:flex absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex-col justify-end p-6 md:p-8 text-white">
-                        <h3 class="text-xl md:text-2xl font-bold mb-3">Your Digital Dental Design Partner</h3>
-                        <p class="text-blue-100 mb-4 text-lg md:text-base">
+                    <!-- Content Below Image -->
+                    <div class="bg-blue-900 p-6 text-white flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold mb-3">Your Digital Dental Design Partner</h3>
+                        <p class="text-blue-100 mb-4">
                             Precision, reliability, and seamless integration for dental labs worldwide
                         </p>
 
                         <!-- Features -->
-                        <div class="space-y-4 mb-6">
+                        <div class="space-y-4 mb-6 flex-1">
                             <div class="flex items-start">
                                 <div class="bg-blue-700 p-2 rounded-full mr-3 flex-shrink-0">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1623,8 +1626,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-lg md:text-base">Precision Design</h4>
-                                    <p class="text-md md:text-lg text-blue-200">99.7% accuracy rate on all cases</p>
+                                    <h4 class="font-semibold">Precision Design</h4>
+                                    <p class="text-blue-200 text-sm">99.7% accuracy rate on all cases</p>
                                 </div>
                             </div>
 
@@ -1635,8 +1638,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-lg md:text-base">Fast Turnaround</h4>
-                                    <p class="text-md md:text-lg text-blue-200">30 min – 12 hrs delivery</p>
+                                    <h4 class="font-semibold">Fast Turnaround</h4>
+                                    <p class="text-blue-200 text-sm">30 min – 12 hrs delivery</p>
                                 </div>
                             </div>
 
@@ -1647,21 +1650,21 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-lg md:text-base">Dedicated Support</h4>
-                                    <p class="text-md md:text-lg text-blue-200">Personal manager for each client</p>
+                                    <h4 class="font-semibold">Dedicated Support</h4>
+                                    <p class="text-blue-200 text-sm">Personal manager for each client</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contact -->
-                        <div class="border-t border-blue-700 pt-4 text-md md:text-lg">
-                            <p class="flex items-center mb-2">
+                        <div class="border-t border-blue-700 pt-4">
+                            <p class="flex items-center mb-2 text-sm">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 skydent@skydentdesigns.com
                             </p>
-                            <p class="flex items-center">
+                            <p class="flex items-center text-sm">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2H5z" />
                                 </svg>
@@ -1671,71 +1674,8 @@
                     </div>
                 </div>
 
-                <!-- Content Below Image (Mobile Only) -->
-                <div class="md:hidden bg-blue-900 p-6 text-white order-2">
-                    <h3 class="text-xl font-bold mb-3">Your Digital Dental Design Partner</h3>
-                    <p class="text-blue-100 mb-4">
-                        Precision, reliability, and seamless integration for dental labs worldwide
-                    </p>
-
-                    <!-- Features -->
-                    <div class="space-y-4 mb-6">
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-2 rounded-full mr-3 flex-shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Precision Design</h4>
-                                <p class="text-blue-200 text-sm">99.7% accuracy rate on all cases</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-2 rounded-full mr-3 flex-shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Fast Turnaround</h4>
-                                <p class="text-blue-200 text-sm">30 min – 12 hrs delivery</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-2 rounded-full mr-3 flex-shrink-0">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Dedicated Support</h4>
-                                <p class="text-blue-200 text-sm">Personal manager for each client</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Contact -->
-                    <div class="border-t border-blue-700 pt-4">
-                        <p class="flex items-center mb-2 text-sm">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            skydent@skydentdesigns.com
-                        </p>
-                        <p class="flex items-center text-sm">
-                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2H5z" />
-                            </svg>
-                            +91 88104 68697
-                        </p>
-                    </div>
-                </div>
-
                 <!-- Form Section -->
-                <div class="w-full md:w-3/5 p-4 md:p-6 lg:p-10 order-3 md:order-2">
+                <div class="w-full md:w-3/5 p-4 md:p-6 lg:p-10 flex flex-col">
                     <div class="mb-4 md:mb-6 lg:mb-8">
                         <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2">Contact Us</h2>
                         <p class="text-blue-600 font-medium mb-2 md:mb-3">📩 Your Reliable Partner</p>
@@ -1744,7 +1684,7 @@
                         </p>
                     </div>
 
-                    <form class="space-y-4 md:space-y-5 lg:space-y-6" action="getCdata.php" method="post">
+                    <form id="c_form" class="space-y-4 md:space-y-5 lg:space-y-6 flex-1 flex flex-col">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                             <div>
                                 <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Full Name *</label>
@@ -1762,7 +1702,7 @@
                                 <input type="email" name="e_ml" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="skydent@skydentdesigns.com" required>
                             </div>
                             <div>
-                                <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Phone Number</label>
+                                <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Phone Number *</label>
                                 <input type="tel" name="pho_n" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="+91 88104 68697" required>
                             </div>
                         </div>
@@ -1782,9 +1722,9 @@
                         </div>
 
                         <div>
-                            <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Select a Option *</label>
+                            <label class="block text-gray-700 text-base md:text-lg font-medium mb-1 md:mb-2">Choose your request type *</label>
                             <select name="services_r" id="services" class="w-full text-black border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg" value="" placeholder="Select a Option">
-                                <option disabled selected value="">Select</option>
+                                <option disabled selected value="">Select a Option</option>
                                 <option value="Get a Quote">Get a Quote</option>
                                 <option value="Schedule a Meeting">Schedule a Meeting</option>
                                 <option value="Try a Free Sample Design">Try a Free Sample Design</option>
@@ -1797,20 +1737,27 @@
                             <textarea rows="3" name="message" class="w-full border rounded-lg px-3 md:px-4 py-2 md:py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base md:text-lg text-black" placeholder="Tell us about your specific requirements..."></textarea>
                         </div>
 
-                        <div class="flex items-start bg-blue-50 p-3 md:p-4 rounded-lg text-base md:text-lg">
-                            <svg class="h-5 w-5 md:h-5 md:w-5 text-blue-600 mr-2 md:mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div id="status" class="hidden flex items-start p-3 md:p-4 rounded-lg text-base md:text-lg">
+                            <svg class="h-5 w-5 md:h-5 md:w-5 mr-2 md:mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
-                            <p class="text-blue-700 text-sm md:text-base">Once submitted, our team will review your requirements and connect with you within a few hours.</p>
+                            <p class="text-sm md:text-base" id="status_text"></p>
                         </div>
 
-                        <button type="submit" class="w-44 whatsapp-float bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-2 md:py-3 lg:py-4 rounded-xl shadow-md hover:from-blue-700 hover:to-indigo-700 transition transform hover:-translate-y-0.5 text-base md:text-lg">
-                            Send Request
-                        </button>
+                        <div class="mt-auto pt-4">
+                            <?php
+                            require 'spinner.php';
+                            ?>
+
+                            <button id="form_sub" type="button" class="w-44 whatsapp-float bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-2 md:py-3 lg:py-4 rounded-xl shadow-md hover:from-blue-700 hover:to-indigo-700 transition transform hover:-translate-y-0.5 text-base md:text-lg">
+                                Send Request
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
+
 
     </main>
     <!-- Footer -->
@@ -1876,10 +1823,37 @@
         $('#services').change(function() {
             if ($(this).val() == 'Other') {
                 $('#message').show();
+            } else {
+                $('#message').hide();
             }
-            else{
-                $('#message').hide(); 
-            }
+        })
+
+        $('#form_sub').click(function() {
+            $(this).hide();
+            $('#loader').show();
+            $.ajax({
+                url: "getCdata.php",
+                type: "POST",
+                data: $("#c_form").serialize(),
+                success: function(resp) {
+                    if (resp == 'You form submitted successfully!, our team will review your requirements and connect with you within a few hours.') {
+                        $('#c_form')[0].reset();
+                        $('#loader').hide();
+                        $('#form_sub').show();
+                        $('#status').show();
+                        $('#status').addClass('bg-green-50 text-green-700')
+                        $('#status_text').text(resp)
+                    }
+                },
+                error: function(xhr, status, err) {
+                    $('#c_form').reset();
+                    $('#loader').hide();
+                    $('#form_sub').show();
+                    $('#status').show();
+                    $('#status').addClass('bg-red-50 text-red-700')
+                    $('#status_text').text(err)
+                }
+            })
         })
     })
 </script>
