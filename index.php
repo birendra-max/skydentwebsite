@@ -176,9 +176,53 @@
 
     <main class="py-16">
 
-        <section class="relative overflow-hidden min-h-[720px] flex items-center text-white">
+        <!-- Modal -->
+        <div id="partnershipModal"
+            class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4">
 
-            <!-- Slider Background -->
+            <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8">
+                <button id="closeModal"
+                    class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 text-xl">
+                    &times;
+                </button>
+
+                <h2 class="text-2xl font-semibold text-slate-800 mb-4">
+                    Schedule Partnership Call
+                </h2>
+
+                <p class="text-slate-600 mb-6">
+                    Fill out the form and our senior team will contact you within 24 hours.
+                </p>
+
+                <span id="statuscallrequest"></span>
+
+                <form class="space-y-4" id="requestCallForm">
+
+                    <input type="text"
+                        placeholder="Full Name"
+                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400" name="full_name" id="full_name" required>
+
+                    <input type="text"
+                        placeholder="Phone No"
+                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400" name="phone" id="phone" required>
+
+                    <textarea
+                        placeholder="Your Message"
+                        rows="4"
+                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-400" name="message" id="message"></textarea>
+
+                    <button id="requestCall" type="button"
+                        class="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 rounded-lg transition">
+                        Request Call
+                    </button>
+                    <div class="w-full flex justify-center items-center">
+                        <?php include('spinner.php'); ?>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <section class="relative overflow-hidden min-h-[720px] flex items-center text-white">
             <div class="absolute inset-0 -z-10">
                 <div id="slide1" class="absolute inset-0 transition-opacity duration-1000 opacity-100">
                     <img src="img/4 Units Anterior.png" class="w-full h-full object-cover">
@@ -193,75 +237,70 @@
                     <img src="img/Customized Tray.png" class="w-full h-full object-cover">
                 </div>
                 <div id="slide5" class="absolute inset-0 transition-opacity duration-1000 opacity-0">
-                    <img src="img/Custom Abutment.png" class="w-full h-full object-cover">
-                </div>
-                <div id="slide6" class="absolute inset-0 transition-opacity duration-1000 opacity-0">
                     <img src="img/DIGITAL DENTAL DESIGNERS (1).jpg" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Soft Overlay for readability -->
-                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="absolute inset-0 bg-black/60"></div>
             </div>
 
-            <!-- Content -->
-            <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 w-full">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative w-full mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 w-full">
+                <div class="ml-20 grid lg:grid-cols-2 gap-12 items-center">
 
-                    <div class="space-y-8">
+                    <div class="w-full space-y-6 sm:space-y-8 text-center lg:text-left">
 
-                        <h1 class="w-full text-5xl lg:text-6xl font-semibold leading-tight">
-                            Your Long Term<br>
+                        <h1 class="max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
+                            Your Long Term<br class="hidden sm:block">
                             <span class="text-amber-400">Digital Design Partner</span>
                         </h1>
 
-                        <p class="text-xl text-white/90 max-w-2xl">
+                        <p class="text-base sm:text-lg lg:text-xl text-white/90 max-w-xl mx-auto lg:mx-0">
                             Built for established labs that need stable overflow coverage and senior oversight on every case.
                         </p>
 
-                        <ul class="space-y-4 text-lg text-white/90">
+                        <ul class="space-y-3 text-base sm:text-lg text-white/90 max-w-xl mx-auto lg:mx-0 text-left">
+
                             <li class="flex items-start gap-3">
                                 <span class="mt-2 w-2 h-2 bg-amber-400 rounded-full"></span>
                                 Structured 24 hour shift coverage
                             </li>
+
                             <li class="flex items-start gap-3">
                                 <span class="mt-2 w-2 h-2 bg-amber-400 rounded-full"></span>
                                 Documented workflow integration
                             </li>
+
                             <li class="flex items-start gap-3">
                                 <span class="mt-2 w-2 h-2 bg-amber-400 rounded-full"></span>
                                 Reduced remakes with predictable turnaround
                             </li>
+
                         </ul>
 
-                        <div class="flex flex-col sm:flex-row gap-5 pt-6">
-                            <a href="#contact" class="px-8 py-4 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-lg transition">
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+
+                            <button id="openModal"
+                                class="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-lg transition">
                                 Schedule Partnership Call
+                            </button>
+
+                            <a href="" class="w-full sm:w-auto text-center px-6 py-3 sm:px-8 sm:py-4 border border-white/60 hover:bg-white/20 rounded-lg font-semibold transition">
+                                Create Account
                             </a>
-                            <a href="#upload" class="px-8 py-4 border border-white/60 hover:bg-white/20 rounded-lg font-semibold transition">
-                               Create Account
-                            </a>
+
                         </div>
 
-                        <div class="relative z-20 mt-12">
-                            <div class="max-w-5xl mx-auto bg-white/90 backdrop-blur-md border border-slate-200/70 rounded-2xl shadow-xl px-10 py-5">
+                        <div class="mt-10">
+                            <div class="bg-white/90 backdrop-blur-md border border-slate-200/70 rounded-xl shadow-lg px-6 py-4">
 
-                                <div class="flex items-center justify-between text-slate-700 text-sm md:text-base font-medium">
+                                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-between gap-4 text-slate-700 text-sm sm:text-base font-medium text-center sm:text-left">
 
-                                    <div class="flex items-center gap-3">
-                                        <span class="tracking-wide">3Shape</span>
-                                    </div>
+                                    <span>3Shape Integration</span>
+                                    <span class="hidden sm:block h-5 w-px bg-slate-300"></span>
 
-                                    <div class="h-5 w-px bg-slate-300"></div>
+                                    <span>Implant & Full Arch Specialists</span>
+                                    <span class="hidden sm:block h-5 w-px bg-slate-300"></span>
 
-                                    <div class="flex items-center gap-3">
-                                        <span>Implant & Full Arch Specialists</span>
-                                    </div>
-
-                                    <div class="h-5 w-px bg-slate-300"></div>
-
-                                    <div class="flex items-center gap-3">
-                                        <span>24 Hour Structured Coverage</span>
-                                    </div>
+                                    <span>24 Hour Structured Coverage</span>
 
                                 </div>
 
@@ -275,14 +314,12 @@
                 </div>
             </div>
 
-            <!-- Indicators -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+            <div class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
                 <button onclick="changeSlide(0)" class="indicator w-3 h-3 rounded-full bg-amber-400"></button>
                 <button onclick="changeSlide(1)" class="indicator w-3 h-3 rounded-full bg-white/40"></button>
                 <button onclick="changeSlide(2)" class="indicator w-3 h-3 rounded-full bg-white/40"></button>
                 <button onclick="changeSlide(3)" class="indicator w-3 h-3 rounded-full bg-white/40"></button>
                 <button onclick="changeSlide(4)" class="indicator w-3 h-3 rounded-full bg-white/40"></button>
-                <button onclick="changeSlide(5)" class="indicator w-3 h-3 rounded-full bg-white/40"></button>
             </div>
 
             <script>
@@ -291,8 +328,7 @@
                     document.getElementById('slide2'),
                     document.getElementById('slide3'),
                     document.getElementById('slide4'),
-                    document.getElementById('slide5'),
-                    document.getElementById('slide6')
+                    document.getElementById('slide5')
                 ];
 
                 const indicators = document.querySelectorAll('.indicator');
@@ -322,56 +358,82 @@
                 setInterval(nextSlide, 5000);
             </script>
 
+            <script>
+                const openModalBtn = document.getElementById('openModal');
+                const modal = document.getElementById('partnershipModal');
+                const closeModalBtn = document.getElementById('closeModal');
+
+                openModalBtn.addEventListener('click', () => {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    document.body.classList.add('overflow-hidden');
+                });
+
+                closeModalBtn.addEventListener('click', () => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.classList.remove('overflow-hidden');
+                });
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                        document.body.classList.remove('overflow-hidden');
+                    }
+                });
+            </script>
+
         </section>
 
-        <section class="relative py-8 overflow-hidden">
+        <section class="relative py-14 sm:py-16 lg:py-20 overflow-hidden">
 
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-                <div class="text-center mb-10">
-                    <h2 class="text-4xl lg:text-5xl font-semibold text-slate-800 tracking-tight">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-800 tracking-tight">
                         Our Long Term Partnership Model
                     </h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
-                    <div class="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200/70 p-8 text-center hover:shadow-2xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8 text-center hover:shadow-2xl transition">
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-4">
                             Dedicated Design Pod
                         </h3>
                         <div class="w-10 h-px bg-slate-300 mx-auto mb-4"></div>
-                        <p class="text-slate-600 leading-relaxed">
+                        <p class="text-sm sm:text-base text-slate-600">
                             Assigned designers aligned to your lab
                         </p>
                     </div>
 
-                    <div class="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200/70 p-8 text-center hover:shadow-2xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8 text-center hover:shadow-2xl transition">
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-4">
                             Documented Preference Library
                         </h3>
                         <div class="w-10 h-px bg-slate-300 mx-auto mb-4"></div>
-                        <p class="text-slate-600 leading-relaxed">
+                        <p class="text-sm sm:text-base text-slate-600">
                             Every margin, contact, and occlusion recorded
                         </p>
                     </div>
 
-                    <div class="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200/70 p-8 text-center hover:shadow-2xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8 text-center hover:shadow-2xl transition">
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-4">
                             Senior Case Oversight
                         </h3>
                         <div class="w-10 h-px bg-slate-300 mx-auto mb-4"></div>
-                        <p class="text-slate-600 leading-relaxed">
+                        <p class="text-sm sm:text-base text-slate-600">
                             Implant and complex cases reviewed before delivery
                         </p>
                     </div>
 
-                    <div class="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-slate-200/70 p-8 text-center hover:shadow-2xl transition duration-300">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8 text-center hover:shadow-2xl transition">
+                        <h3 class="text-lg sm:text-xl font-semibold text-slate-800 mb-4">
                             Backup & Escalation Protocol
                         </h3>
                         <div class="w-10 h-px bg-slate-300 mx-auto mb-4"></div>
-                        <p class="text-slate-600 leading-relaxed">
+                        <p class="text-sm sm:text-base text-slate-600">
                             No disruption during surge or emergency
                         </p>
                     </div>
@@ -1605,6 +1667,52 @@
                 }
             })
         })
+
+        $('#requestCall').on('click', function(e) {
+
+            e.preventDefault(); // Prevent form submission if button is inside form
+
+            const btn = $(this);
+            const name = $('#full_name').val().trim();
+            const phone = $('#phone').val().trim();
+
+            if (name === '' || phone === '') {
+                $("#statuscallrequest").text("Please fill in required fields.").addClass('text-red-600 py-4');
+                return;
+            }
+
+            btn.hide();
+            $('#loader').removeClass('hidden').addClass('flex');
+
+            $.ajax({
+                url: "requestCall.php",
+                type: "POST",
+                data: $("#requestCallForm").serialize(),
+                success: function(resp) {
+
+                    $('#loader').removeClass('flex').addClass('hidden');
+                    btn.show();
+                    $('#requestCallForm')[0].reset();
+
+                    $("#statuscallrequest")
+                        .removeClass('text-red-600')
+                        .addClass('text-green-600 py-4')
+                        .text(resp);
+                },
+                error: function(xhr, status, err) {
+
+                    $('#loader').removeClass('flex').addClass('hidden');
+                    btn.show();
+                    $('#requestCallForm')[0].reset();
+
+                    $("#statuscallrequest")
+                        .removeClass('text-green-600')
+                        .addClass('text-red-600 py-4')
+                        .text("Something went wrong. Please try again.");
+                }
+            });
+
+        });
     })
 </script>
 
