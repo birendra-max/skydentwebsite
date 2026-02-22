@@ -8,15 +8,13 @@ require 'conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $full_name = trim(filter_input(INPUT_POST, 'full_nam', FILTER_SANITIZE_STRING));
-    $lab_name = trim(filter_input(INPUT_POST, 'lab_nam', FILTER_SANITIZE_STRING));
-    $email =  trim(filter_input(INPUT_POST, 'e_ml', FILTER_SANITIZE_EMAIL));
-    $phone = trim(filter_input(INPUT_POST, 'pho_n', FILTER_SANITIZE_NUMBER_INT));
-    $services = trim(filter_input(INPUT_POST, 'service', FILTER_SANITIZE_STRING));
-    $services_r = trim(filter_input(INPUT_POST, 'services_r', FILTER_SANITIZE_STRING));
-    $message = trim(filter_input(INPUT_POST, 'message', FILTER_SANITIZE_STRING));
+    $full_name = trim($_POST['full_nam']);
+    $lab_name = trim($_POST['lab_nam']);
+    $email =  trim($_POST['e_ml']);
+    $phone = trim($_POST['pho_n']);
+    $services_r = trim($_POST['services_r']);
+    $message = trim($_POST['message']);
     $date = date('Y-m-d h:i:sa');
-
 
     $emailTemplate = '
                     <!DOCTYPE html>
@@ -52,10 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td style="font-weight:bold; border:1px solid #e5e7eb;">Phone</td>
                                 <td style="border:1px solid #e5e7eb;">' . $phone . '</td>
                             </tr>
-                            <tr style="background:#f3f4f6;">
-                                <td style="font-weight:bold; border:1px solid #e5e7eb;">Service</td>
-                                <td style="border:1px solid #e5e7eb;">' . $services . '</td>
-                            </tr>
                             <tr>
                                 <td style="font-weight:bold; border:1px solid #e5e7eb;">Selected Option</td>
                                 <td style="border:1px solid #e5e7eb;">' . $services_r . '</td>
@@ -84,33 +78,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Connection Error";
         exit;
     } else {
-        if (!empty($full_name) and !empty($lab_name) and !empty($email) and !empty($phone) and !empty($services) and !empty($services_r)) {
-            $stmt = $conn->prepare("insert into contact(name,lab_name,email,phone,services,require_type,message,contact_date) values(?,?,?,?,?,?,?,?)");
-            $stmt->bind_param('ssssssss', $full_name, $lab_name, $email, $phone, $services, $services_r, $message, $date);
+        if (!empty($full_name) and !empty($lab_name) and !empty($email) and !empty($phone) and !empty($services_r)) {
+            $stmt = $conn->prepare("insert into contact(name,lab_name,email,phone,require_type,message,contact_date) values(?,?,?,?,?,?,?)");
+            $stmt->bind_param('sssssss', $full_name, $lab_name, $email, $phone, $services_r, $message, $date);
 
             if ($stmt->execute()) {
 
                 $mail = new PHPMailer(true);
 
                 try {
-                    // Server settings
                     $mail->isSMTP();                                            // Send using SMTP
                     $mail->Host       = 'smtp.gmail.com';                       // Set the SMTP server
                     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                    $mail->Username   = 'orders.designs1@gmail.com';            // SMTP username
-                    $mail->Password   = 'dwsf buct qpqq qkka';                  // SMTP password (App Password if Gmail)
+                    $mail->Username   = 'devansh@dentigolab.com';            // SMTP username
+                    $mail->Password   = 'stuy rdkd xcbd rqsh';                  // SMTP password (App Password if Gmail)
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption
                     $mail->Port       = 587;                                    // TCP port to connect to
 
                     // Recipients
-                    $mail->setFrom('orders.designs1@gmail.com', 'Dental Designs');
-                    $mail->addAddress('skydent@skydentdesigns.com', 'Bravodent Design');
+                    $mail->setFrom('devansh@dentigolab.com', ' Devamsh Dentigolab');
+                    // $mail->addAddress('skydent@skydentdesigns.com', 'Skydent Design');
+                    $mail->addAddress('birendrapradhan112@gmail.com', 'Birendra Kumar Pradhan');
 
                     // Content
                     $mail->isHTML(true);                                        // Set email format to HTML
                     $mail->Subject = 'Contact Form Submission - ' . $full_name;
                     $mail->Body    = $emailTemplate;
-                    $mail->AltBody = "Full Name: $full_name\nLab Name: $lab_name\nEmail: $email\nPhone: $phone\nService: $services\nOption: $services_r\nMessage: $message\nDate: $date";
+                    $mail->AltBody = "Full Name: $full_name\nLab Name: $lab_name\nEmail: $email\nPhone: $phone\nOption: $services_r\nMessage: $message\nDate: $date";
 
                     if ($mail->send()) {
                         echo "You form submitted successfully!, our team will review your requirements and connect with you within a few hours.";

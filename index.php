@@ -1522,7 +1522,7 @@
             });
         </script>
 
-        <section class="py-20 px-4 max-w-7xl mx-auto" id="contact">
+        <section class="px-4 max-w-7xl mx-auto" id="contact">
             <div class="grid lg:grid-cols-5 rounded-3xl border border-gray-100/80 shadow-2xl overflow-hidden">
 
                 <div class="lg:col-span-2 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
@@ -1602,6 +1602,9 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </button>
+                                <div class="loder1">
+                                    <?php include('spinner.php'); ?>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -1676,7 +1679,7 @@
 
         $('#form_sub').click(function() {
             $(this).hide();
-            $('#loader').show();
+            $('#c_form #loader').removeClass('hidden').addClass('flex');
             $.ajax({
                 url: "getCdata.php",
                 type: "POST",
@@ -1684,7 +1687,7 @@
                 success: function(resp) {
                     if (resp == 'You form submitted successfully!, our team will review your requirements and connect with you within a few hours.') {
                         $('#c_form')[0].reset();
-                        $('#loader').hide();
+                        $('#c_form #loader').removeClass('flex').addClass('hidden');
                         $('#form_sub').show();
                         $('#status').show();
                         $('#status').addClass('bg-green-50 text-green-700')
@@ -1693,7 +1696,7 @@
                 },
                 error: function(xhr, status, err) {
                     $('#c_form').reset();
-                    $('#loader').hide();
+                    $('#c_form #loader').removeClass('flex').addClass('hidden');
                     $('#form_sub').show();
                     $('#status').show();
                     $('#status').addClass('bg-red-50 text-red-700')
@@ -1704,7 +1707,7 @@
 
         $('#requestCall').on('click', function(e) {
 
-            e.preventDefault(); // Prevent form submission if button is inside form
+            e.preventDefault();
 
             const btn = $(this);
             const name = $('#full_name').val().trim();
@@ -1716,15 +1719,15 @@
             }
 
             btn.hide();
-            $('#loader').removeClass('hidden').addClass('flex');
+            $('#requestCallForm #loader').removeClass('hidden').addClass('flex');
 
             $.ajax({
                 url: "requestCall.php",
                 type: "POST",
                 data: $("#requestCallForm").serialize(),
                 success: function(resp) {
-
-                    $('#loader').removeClass('flex').addClass('hidden');
+                    console.log(resp);
+                    $('#requestCallForm #loader').removeClass('flex').addClass('hidden');
                     btn.show();
                     $('#requestCallForm')[0].reset();
 
@@ -1735,7 +1738,7 @@
                 },
                 error: function(xhr, status, err) {
 
-                    $('#loader').removeClass('flex').addClass('hidden');
+                    $('#requestCallForm #loader').removeClass('flex').addClass('hidden');
                     btn.show();
                     $('#requestCallForm')[0].reset();
 
@@ -1781,20 +1784,45 @@
             flotingwp.classList.remove('hidden');
         }
     });
+</script>
 
-
+<script>
     let socket;
+    let currentUserId = "user_" + Math.floor(Math.random() * 100000);
 
     function connectWebSocket() {
-        socket = new WebSocket("wss://yourdomain.com/ws");
+
+        socket = new WebSocket("ws://192.168.1.11:8080");
 
         socket.onopen = function() {
-            console.log("Connected to WebSocket server ✅");
+            socket.send(JSON.stringify({
+                type: "register_user",
+                user_id: currentUserId
+            }));
+
+            socket.send(JSON.stringify({
+                type: "load_history"
+            }));
         };
 
         socket.onmessage = function(event) {
-            console.log("Received:", event.data);
-            addMessageToChat(event.data, "server");
+
+            const data = JSON.parse(event.data);
+            if (data.type === "chat_history") {
+
+                if (data.messages && data.messages.length > 0) {
+
+                    data.messages.forEach(msg => {
+                        addMessageToChat(msg.message, msg.sender);
+                    });
+
+                }
+
+                return;
+            }
+            if (data.type === "chat_to_user") {
+                addMessageToChat(data.message, "admin");
+            }
         };
 
         socket.onerror = function(error) {
@@ -1810,33 +1838,37 @@
 
 
     function sendMessage() {
-        const message = $('#messagebox').val();
 
+        const message = $('#messagebox').val();
         if (!message.trim()) return;
 
         if (socket && socket.readyState === WebSocket.OPEN) {
+
             socket.send(JSON.stringify({
-                type: "chat",
+                type: "chat_from_user",
+                user_id: currentUserId,
                 message: message
             }));
 
             addMessageToChat(message, "user");
 
             $('#messagebox').val("");
-        } else {
-            console.log("WebSocket not connected");
         }
     }
 
-    function addMessageToChat(message, sender) {
-        const chatBody = document.querySelector(".overflow-y-auto");
 
+    function addMessageToChat(message, sender) {
+
+        const chatBody = document.querySelector(".overflow-y-auto");
         const messageDiv = document.createElement("div");
 
         if (sender === "user") {
+
             messageDiv.className =
                 "bg-yellow-400 text-black p-3 rounded-xl w-fit ml-auto";
+
         } else {
+
             messageDiv.className =
                 "bg-gray-200 p-3 rounded-xl w-fit";
         }
