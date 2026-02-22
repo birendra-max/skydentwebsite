@@ -1788,54 +1788,55 @@
 
 <script>
     let socket;
-    let currentUserId = "user_" + Math.floor(Math.random() * 100000);
+
+    let currentUserId = localStorage.getItem("chat_user_id");
+    if (!currentUserId) {
+        currentUserId = "user_" + Math.floor(Math.random() * 100000);
+        localStorage.setItem("chat_user_id", currentUserId);
+    }
 
     function connectWebSocket() {
 
         socket = new WebSocket("ws://192.168.1.11:8080");
 
         socket.onopen = function() {
+
             socket.send(JSON.stringify({
                 type: "register_user",
                 user_id: currentUserId
             }));
 
             socket.send(JSON.stringify({
-                type: "load_history"
+                type: "load_history",
+                user_id: currentUserId
             }));
         };
 
         socket.onmessage = function(event) {
 
             const data = JSON.parse(event.data);
+
             if (data.type === "chat_history") {
 
                 if (data.messages && data.messages.length > 0) {
 
+                    document.querySelector(".overflow-y-auto").innerHTML = "";
+
                     data.messages.forEach(msg => {
                         addMessageToChat(msg.message, msg.sender);
                     });
-
                 }
 
                 return;
             }
+
             if (data.type === "chat_to_user") {
                 addMessageToChat(data.message, "admin");
             }
         };
-
-        socket.onerror = function(error) {
-            console.error("WebSocket error:", error);
-        };
-
-        socket.onclose = function() {
-            console.log("WebSocket closed ❌");
-        };
     }
 
     window.onload = connectWebSocket;
-
 
     function sendMessage() {
 
@@ -1851,11 +1852,9 @@
             }));
 
             addMessageToChat(message, "user");
-
             $('#messagebox').val("");
         }
     }
-
 
     function addMessageToChat(message, sender) {
 
@@ -1863,19 +1862,13 @@
         const messageDiv = document.createElement("div");
 
         if (sender === "user") {
-
-            messageDiv.className =
-                "bg-yellow-400 text-black p-3 rounded-xl w-fit ml-auto";
-
+            messageDiv.className = "bg-yellow-400 text-black p-3 rounded-xl w-fit ml-auto";
         } else {
-
-            messageDiv.className =
-                "bg-gray-200 p-3 rounded-xl w-fit";
+            messageDiv.className = "bg-gray-200 p-3 rounded-xl w-fit";
         }
 
         messageDiv.innerText = message;
         chatBody.appendChild(messageDiv);
-
         chatBody.scrollTop = chatBody.scrollHeight;
     }
 </script>
