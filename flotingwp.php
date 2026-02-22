@@ -1,12 +1,12 @@
-<section class="bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center">
+<section class="bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center" id="flotingwp">
     <!-- WhatsApp Button -->
-    <div class="fixed bottom-12 right-6 z-50">
-        <a href="https://wa.me/+918810468697" class="whatsapp-float md:w-20 md:h-20 w-12 h-12 md:w-16 md:h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group">
+    <div class="fixed bottom-2 right-6 z-50">
+        <button class="whatsapp-float md:w-20 md:h-20 w-12 h-12 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group">
             <i class="fab fa-whatsapp text-white text-2xl md:text-5xl"></i>
             <span class="absolute right-full top-1/2 transform -translate-y-1/2 mr-3 bg-gray-900 text-white text-lg font-medium px-3 py-2 rounded-lg shadow-md transition-opacity duration-300 whitespace-nowrap">
                 How may I help you?
             </span>
-        </a>
+        </button>
     </div>
 </section>
 

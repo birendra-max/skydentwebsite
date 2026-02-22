@@ -119,6 +119,39 @@
 
 <body class="flex-grow bg-gradient-to-r from-gray-100 via-sky-200 to-sky-300 hover:from-sky-300 hover:via-sky-200 hover:to-gray-100">
 
+    <!-- Chat Modal -->
+    <div id="chatModal"
+        class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden flex 
+           items-center justify-center 
+           lg:items-end lg:justify-end 
+           z-50">
+
+        <div class="bg-white w-[95%] max-w-md 
+                lg:mr-6 lg:mb-44
+                rounded-2xl shadow-2xl overflow-hidden animate-fadeIn">
+
+            <div class="bg-gradient-to-r from-yellow-400 to-amber-500 p-4 flex justify-between items-center">
+                <h2 class="font-semibold text-black">Live Chat</h2>
+                <button id="closeChat" class="text-black text-2xl font-bold">&times;</button>
+            </div>
+
+            <div class="h-80 p-4 overflow-y-auto space-y-3 bg-gray-50">
+                <div class="bg-yellow-100 p-3 rounded-xl w-fit">
+                    👋 Hi! How can we help you?
+                </div>
+            </div>
+
+            <div class="p-3 border-t flex gap-2">
+                <input type="text" placeholder="Type a message..."
+                    class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400" id="messagebox" required>
+                <button onclick="sendMessage()" class="bg-yellow-400 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition">
+                    Send
+                </button>
+            </div>
+
+        </div>
+    </div>
+
     <header class="text-white body-font bg-gray-900 border-b border-yellow-400/30 shadow-xl fixed w-full z-[999]">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 md:h-20">
@@ -139,13 +172,14 @@
                         </svg>
                     </a>
 
-                    <a href="https://wa.me/+918810468697?text=Hello%20I%20want%20to%20know%20more" class="inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 border-0 py-1.5 px-3 md:py-2 md:px-5 focus:outline-none hover:from-yellow-500 hover:to-amber-600 rounded-l-full rounded-tr-3xl text-black font-semibold transition-all duration-300 shadow-lg hover:shadow-yellow-400/30 group text-xs sm:text-sm md:text-base">
+                    <button id="chatBtn"
+                        class="inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 border-0 py-1.5 px-3 md:py-2 md:px-5 focus:outline-none hover:from-yellow-500 hover:to-amber-600 rounded-l-full rounded-tr-3xl text-black font-semibold transition-all duration-300 shadow-lg hover:shadow-yellow-400/30 group text-xs sm:text-sm md:text-base">
                         <i class="fab fa-whatsapp text-base md:text-xl mr-1 md:mr-2"></i>
                         <span class="hidden xs:inline">CHAT</span>
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-3 h-3 md:w-4 md:h-4 ml-1 md:ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -174,11 +208,11 @@
         }
     </style>
 
-    <main class="py-16">
+    <main class="py-16 overflow-hidden">
 
         <!-- Modal -->
         <div id="partnershipModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4">
+            class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4 mt-20 lg:mt-0">
 
             <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8">
                 <button id="closeModal"
@@ -186,7 +220,7 @@
                     &times;
                 </button>
 
-                <h2 class="text-2xl font-semibold text-slate-800 mb-4">
+                <h2 class="text-xl lg:text-2xl font-semibold text-slate-800 mb-4">
                     Schedule Partnership Call
                 </h2>
 
@@ -244,7 +278,7 @@
             </div>
 
             <div class="relative w-full mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 w-full">
-                <div class="ml-20 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="lg:ml-20 grid lg:grid-cols-2 gap-12 items-center">
 
                     <div class="w-full space-y-6 sm:space-y-8 text-center lg:text-left">
 
@@ -1714,6 +1748,104 @@
 
         });
     })
+</script>
+
+<script>
+    const chatBtn = document.getElementById("chatBtn");
+    const chatModal = document.getElementById("chatModal");
+    const closeChat = document.getElementById("closeChat");
+    const flotingwp = document.getElementById('flotingwp');
+
+    flotingwp.addEventListener("click", () => {
+        chatModal.classList.remove("hidden");
+        chatModal.classList.add("flex");
+        flotingwp.classList.add('hidden');
+    })
+
+    chatBtn.addEventListener("click", () => {
+        chatModal.classList.remove("hidden");
+        chatModal.classList.add("flex");
+        flotingwp.classList.add('hidden');
+    });
+
+    closeChat.addEventListener("click", () => {
+        chatModal.classList.add("hidden");
+        chatModal.classList.remove("flex");
+        flotingwp.classList.remove('hidden');
+    });
+
+    chatModal.addEventListener("click", (e) => {
+        if (e.target === chatModal) {
+            chatModal.classList.add("hidden");
+            chatModal.classList.remove("flex");
+            flotingwp.classList.remove('hidden');
+        }
+    });
+
+
+    let socket;
+
+    function connectWebSocket() {
+        socket = new WebSocket("wss://yourdomain.com/ws");
+
+        socket.onopen = function() {
+            console.log("Connected to WebSocket server ✅");
+        };
+
+        socket.onmessage = function(event) {
+            console.log("Received:", event.data);
+            addMessageToChat(event.data, "server");
+        };
+
+        socket.onerror = function(error) {
+            console.error("WebSocket error:", error);
+        };
+
+        socket.onclose = function() {
+            console.log("WebSocket closed ❌");
+        };
+    }
+
+    window.onload = connectWebSocket;
+
+
+    function sendMessage() {
+        const message = $('#messagebox').val();
+
+        if (!message.trim()) return;
+
+        if (socket && socket.readyState === WebSocket.OPEN) {
+            socket.send(JSON.stringify({
+                type: "chat",
+                message: message
+            }));
+
+            addMessageToChat(message, "user");
+
+            $('#messagebox').val("");
+        } else {
+            console.log("WebSocket not connected");
+        }
+    }
+
+    function addMessageToChat(message, sender) {
+        const chatBody = document.querySelector(".overflow-y-auto");
+
+        const messageDiv = document.createElement("div");
+
+        if (sender === "user") {
+            messageDiv.className =
+                "bg-yellow-400 text-black p-3 rounded-xl w-fit ml-auto";
+        } else {
+            messageDiv.className =
+                "bg-gray-200 p-3 rounded-xl w-fit";
+        }
+
+        messageDiv.innerText = message;
+        chatBody.appendChild(messageDiv);
+
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
 </script>
 
 </html>
