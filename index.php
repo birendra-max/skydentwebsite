@@ -1797,7 +1797,7 @@
 
     function connectWebSocket() {
 
-        socket = new WebSocket("ws://192.168.1.11:8080");
+        socket = new WebSocket("ws://192.168.1.7:8080");
 
         socket.onopen = function() {
 
