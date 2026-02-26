@@ -127,7 +127,7 @@
            z-50">
 
         <div class="bg-white w-[95%] max-w-md 
-                lg:mr-6 lg:mb-44
+                lg:mr-6 lg:mb-36
                 rounded-2xl shadow-2xl overflow-hidden animate-fadeIn">
 
             <div class="bg-gradient-to-r from-yellow-400 to-amber-500 p-4 flex justify-between items-center">
