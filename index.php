@@ -135,7 +135,7 @@
                 <button id="closeChat" class="text-black text-2xl font-bold">&times;</button>
             </div>
 
-            <div class="h-80 p-4 overflow-y-auto space-y-3 bg-gray-50">
+            <div class="h-80 p-4 overflow-y-auto space-y-3 bg-gray-50" id="chatMessages">
                 <div class="bg-yellow-100 p-3 rounded-xl w-fit">
                     👋 Hi! How can we help you?
                 </div>
@@ -143,7 +143,10 @@
 
             <div class="p-3 border-t flex gap-2">
                 <input type="text" placeholder="Type a message..."
-                    class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400" id="messagebox" required>
+                    class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    id="messagebox"
+                    required
+                    onkeypress="handleKeyPress(event)">
                 <button onclick="sendMessage()" class="bg-yellow-400 px-4 py-2 rounded-full font-semibold hover:bg-yellow-500 transition">
                     Send
                 </button>
@@ -1752,23 +1755,33 @@
         });
     })
 </script>
-
 <script>
+    let socket;
+    let currentUserId = localStorage.getItem("chat_user_id");
+
+    if (!currentUserId) {
+        currentUserId = "user_" + Math.floor(Math.random() * 100000);
+        localStorage.setItem("chat_user_id", currentUserId);
+    }
+
     const chatBtn = document.getElementById("chatBtn");
     const chatModal = document.getElementById("chatModal");
     const closeChat = document.getElementById("closeChat");
     const flotingwp = document.getElementById('flotingwp');
+    const messageInput = document.getElementById('messagebox');
 
     flotingwp.addEventListener("click", () => {
         chatModal.classList.remove("hidden");
         chatModal.classList.add("flex");
         flotingwp.classList.add('hidden');
-    })
+        setTimeout(() => messageInput?.focus(), 300);
+    });
 
     chatBtn.addEventListener("click", () => {
         chatModal.classList.remove("hidden");
         chatModal.classList.add("flex");
         flotingwp.classList.add('hidden');
+        setTimeout(() => messageInput?.focus(), 300);
     });
 
     closeChat.addEventListener("click", () => {
@@ -1784,23 +1797,18 @@
             flotingwp.classList.remove('hidden');
         }
     });
-</script>
 
-<script>
-    let socket;
-
-    let currentUserId = localStorage.getItem("chat_user_id");
-    if (!currentUserId) {
-        currentUserId = "user_" + Math.floor(Math.random() * 100000);
-        localStorage.setItem("chat_user_id", currentUserId);
-    }
+    messageInput?.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
 
     function connectWebSocket() {
-
-        socket = new WebSocket("ws://192.168.1.4:8080");
+        socket = new WebSocket("wss://dentalserver.online/");
 
         socket.onopen = function() {
-
             socket.send(JSON.stringify({
                 type: "register_user",
                 user_id: currentUserId
@@ -1813,20 +1821,19 @@
         };
 
         socket.onmessage = function(event) {
-
             const data = JSON.parse(event.data);
 
             if (data.type === "chat_history") {
+                const chatBody = document.querySelector(".overflow-y-auto");
+                chatBody.innerHTML = "";
 
                 if (data.messages && data.messages.length > 0) {
-
-                    document.querySelector(".overflow-y-auto").innerHTML = "";
-
                     data.messages.forEach(msg => {
                         addMessageToChat(msg.message, msg.sender);
                     });
+                } else {
+                    addMessageToChat("👋 Hi! How can we help you?", "admin");
                 }
-
                 return;
             }
 
@@ -1839,12 +1846,12 @@
     window.onload = connectWebSocket;
 
     function sendMessage() {
+        const input = document.getElementById('messagebox');
+        const message = input.value.trim();
 
-        const message = $('#messagebox').val();
-        if (!message.trim()) return;
+        if (message === '') return;
 
         if (socket && socket.readyState === WebSocket.OPEN) {
-
             socket.send(JSON.stringify({
                 type: "chat_from_user",
                 user_id: currentUserId,
@@ -1852,12 +1859,14 @@
             }));
 
             addMessageToChat(message, "user");
-            $('#messagebox').val("");
+            input.value = '';
+        } else {
+            alert("Not connected to server");
+            connectWebSocket();
         }
     }
 
     function addMessageToChat(message, sender) {
-
         const chatBody = document.querySelector(".overflow-y-auto");
         const messageDiv = document.createElement("div");
 
