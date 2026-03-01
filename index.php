@@ -1806,7 +1806,8 @@
     });
 
     function connectWebSocket() {
-        socket = new WebSocket("wss://dentalserver.online/");
+        // socket = new WebSocket("wss://dentalserver.online/");
+        socket = new WebSocket("ws://192.168.1.23:8080/");
 
         socket.onopen = function() {
             socket.send(JSON.stringify({
