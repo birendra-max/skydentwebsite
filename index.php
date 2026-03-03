@@ -1755,6 +1755,7 @@
         });
     })
 </script>
+
 <script>
     let socket;
     let currentUserId = localStorage.getItem("chat_user_id");
@@ -1806,8 +1807,8 @@
     });
 
     function connectWebSocket() {
-        // socket = new WebSocket("wss://dentalserver.online/");
-        socket = new WebSocket("ws://192.168.1.23:8080/");
+        // socket = new WebSocket("wss://dentalserver.online/ws/");
+        socket = new WebSocket("ws://192.168.1.12:8080/");
 
         socket.onopen = function() {
             socket.send(JSON.stringify({
