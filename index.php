@@ -267,10 +267,10 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
 
-            let currentUserId = localStorage.getItem("chat_user_id");
+            let currentUserId = localStorage.getItem("skydent_user_id");
             if (!currentUserId) {
-                currentUserId = "user_" + Math.floor(Math.random() * 100000);
-                localStorage.setItem("chat_user_id", currentUserId);
+                currentUserId = "skydent_user_" + Math.floor(Math.random() * 100000);
+                localStorage.setItem("skydent_user_id", currentUserId);
             }
 
             const chatBtn = document.getElementById("chatBtn");
@@ -2355,10 +2355,9 @@
                             <p itemprop="email">
 
                                 <a href="mailto:skydent@skydentdesigns.com "
-                                aria-label="Email Digital Dental Designers"
-                                class="hover:text-amber-400 transition-colors duration-200"
-                                >
-                                skydent@skydentdesigns.com 
+                                    aria-label="Email Digital Dental Designers"
+                                    class="hover:text-amber-400 transition-colors duration-200">
+                                    skydent@skydentdesigns.com
                                 </a>
                             </p>
                         </address>
