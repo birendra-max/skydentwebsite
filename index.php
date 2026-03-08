@@ -262,6 +262,53 @@
         #chatModal.is-open {
             display: flex;
         }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+            background: #e5e7eb;
+            border-radius: 12px;
+            width: fit-content;
+            max-width: 80%;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background-color: #9ca3af;
+            border-radius: 50%;
+            display: inline-block;
+            animation: typingBounce 1.2s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingBounce {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+
+            30% {
+                transform: translateY(-6px);
+                opacity: 1;
+            }
+        }
     </style>
 
     <script>
@@ -282,6 +329,8 @@
             const sendBtn = document.getElementById("sendBtn");
 
             let socket;
+            let typingIndicatorEl = null;
+            let isTypingActive = false;
 
             function openChat() {
                 chatModal.removeAttribute("hidden");
@@ -308,9 +357,7 @@
             });
 
             document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape" && chatModal.classList.contains("is-open")) {
-                    closeModal();
-                }
+                if (e.key === "Escape" && chatModal.classList.contains("is-open")) closeModal();
             });
 
             if (messageInput) {
@@ -320,12 +367,62 @@
                         sendMessage();
                     }
                 });
+
+                messageInput.addEventListener("input", () => {
+                    if (!socket || socket.readyState !== WebSocket.OPEN) return;
+
+                    const hasText = messageInput.value.length > 0;
+
+                    if (hasText && !isTypingActive) {
+                        isTypingActive = true;
+                        socket.send(JSON.stringify({
+                            type: "user_typing",
+                            user_id: currentUserId
+                        }));
+                    } else if (!hasText && isTypingActive) {
+                        isTypingActive = false;
+                        socket.send(JSON.stringify({
+                            type: "user_stop_typing",
+                            user_id: currentUserId
+                        }));
+                    }
+                });
             }
 
             if (sendBtn) sendBtn.addEventListener("click", sendMessage);
 
+            function sendStopTyping() {
+                if (!isTypingActive) return;
+                isTypingActive = false;
+                if (socket && socket.readyState === WebSocket.OPEN) {
+                    socket.send(JSON.stringify({
+                        type: "user_stop_typing",
+                        user_id: currentUserId
+                    }));
+                }
+            }
+
+            function showTypingIndicator() {
+                if (typingIndicatorEl) return;
+                typingIndicatorEl = document.createElement("div");
+                typingIndicatorEl.className = "typing-indicator";
+                typingIndicatorEl.setAttribute("aria-label", "Support is typing");
+                typingIndicatorEl.setAttribute("role", "status");
+                typingIndicatorEl.innerHTML = "<span></span><span></span><span></span>";
+                chatMessages.appendChild(typingIndicatorEl);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function hideTypingIndicator() {
+                if (typingIndicatorEl) {
+                    typingIndicatorEl.remove();
+                    typingIndicatorEl = null;
+                }
+            }
+
             function connectWebSocket() {
-                socket = new WebSocket("wss://dentalserver.online/ws/");
+                // socket = new WebSocket("wss://dentalserver.online/ws/");
+                socket = new WebSocket("ws://192.168.1.9:8080");
 
                 socket.onopen = function() {
                     socket.send(JSON.stringify({
@@ -350,21 +447,31 @@
                     if (data.type === "chat_history") {
                         chatMessages.innerHTML = "";
                         if (data.messages && data.messages.length > 0) {
-                            data.messages.forEach(msg => {
-                                addMessageToChat(msg.message, msg.sender);
-                            });
+                            data.messages.forEach(msg => addMessageToChat(msg.message, msg.sender));
                         } else {
                             addMessageToChat("👋 Hi! How can we help you today?", "admin");
                         }
                         return;
                     }
 
+                    if (data.type === "typing") {
+                        showTypingIndicator();
+                        return;
+                    }
+
+                    if (data.type === "stop_typing") {
+                        hideTypingIndicator();
+                        return;
+                    }
+
                     if (data.type === "chat_to_user") {
+                        hideTypingIndicator();
                         addMessageToChat(data.message, "admin");
                     }
                 };
 
                 socket.onclose = function() {
+                    isTypingActive = false;
                     setTimeout(connectWebSocket, 3000);
                 };
 
@@ -376,6 +483,9 @@
             function sendMessage() {
                 const message = messageInput.value.trim();
                 if (!message) return;
+
+                // Stop typing immediately when message is sent
+                sendStopTyping();
 
                 if (socket && socket.readyState === WebSocket.OPEN) {
                     socket.send(JSON.stringify({
@@ -394,24 +504,16 @@
             function addMessageToChat(message, sender) {
                 const messageDiv = document.createElement("div");
                 messageDiv.setAttribute("role", "status");
-                messageDiv.setAttribute(
-                    "aria-label",
-                    sender === "user" ? "You said: " + message : "Support replied: " + message
-                );
-
-                if (sender === "user") {
-                    messageDiv.className = "bg-yellow-400 text-black p-3 rounded-xl w-fit ml-auto max-w-[80%] break-words";
-                } else {
-                    messageDiv.className = "bg-gray-200 text-gray-900 p-3 rounded-xl w-fit max-w-[80%] break-words";
-                }
-
+                messageDiv.setAttribute("aria-label", sender === "user" ? "You said: " + message : "Support replied: " + message);
+                messageDiv.className = sender === "user" ?
+                    "bg-yellow-400 text-black p-3 rounded-xl w-fit ml-auto max-w-[80%] break-words" :
+                    "bg-gray-200 text-gray-900 p-3 rounded-xl w-fit max-w-[80%] break-words";
                 messageDiv.innerText = message;
                 chatMessages.appendChild(messageDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
 
             connectWebSocket();
-
         });
     </script>
 
